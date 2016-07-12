@@ -1,0 +1,299 @@
+//
+// Gallery
+// --------------------------------------------------
+
+.v-item__gallery {
+  
+  &__item {
+    display: none;
+  }
+
+  .fotorama__nav {
+    text-align: left;
+    margin-top: 10px;
+  }
+
+  .fotorama__thumb-border {
+    border-color: @brand-danger;
+  }
+
+}
+
+
+
+//
+// Head
+// --------------------------------------------------
+
+.v-item-status {
+  background: fade(#fff, 60%);
+  color: #000;
+  padding: 2px 10px;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: bold;
+  z-index: 500;
+
+  &.-sold {
+    background: @brand-danger;
+    color: #fff;
+  }
+}
+
+.v-item-head {
+  margin-bottom: @vr;
+  background: #f2f2f2;
+  // .box-shadow(0 0 23px rgba(0,0,0,.07));
+  padding: 20px;
+
+  @media (max-width: @grid-float-breakpoint) {
+    padding: 0;
+    background: #fff;
+  }
+}
+
+.v-item-head__title {
+  .clearfix();
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 15px;
+  margin-bottom: 15px;
+
+  h2 {
+    // float: left;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 26px;
+    margin: 0 15px 15px 0;
+  }
+
+  h3 {
+    font-weight: bold;
+    margin: 0;
+    font-size: 18px;
+    line-height: 18px;
+    color: @brand-danger;
+  }
+
+  .content__actions {
+    float: right;
+  }
+
+  .content__actions>li>a {
+    line-height: 18px;
+  }
+
+  &__tel {
+    font-size: 12px;
+    margin: 5px 0 0;
+  }
+}
+
+.v-item-head__table {
+  width: 100%;
+
+  td {
+    // font-size: 16px;
+    vertical-align: top;
+    color: fade(#000, 60%);
+    padding-bottom: 5px;
+
+    &:first-child {
+      width: 30%;
+      color: fade(#000, 40%);
+      // font-size: 14px;
+    }
+
+    &:last-child {
+      padding-left: 30px;
+    }
+
+    b {
+      color: fade(#000, 80%);
+    }
+  }
+}
+
+.v-item-head__more {
+  .clearfix();
+  margin-top: @vr;
+
+  > span {
+    float: left;
+    margin-right: 15px;
+    font-size: 12px;
+    color: fade(@text-color, 50%);
+
+    &.pull-right {
+      float: right;
+      margin-right: 0;
+      margin-left: 15px;
+    }
+  }
+}
+
+.btn-offer-car {
+  margin-top: @vr/2;
+}
+
+.v-item-info {
+
+  &__section {
+
+    & + & {
+      margin-top: 30px;
+    }
+
+    h4 {
+      font-size: 16px;
+      font-weight: bold;
+      position: relative;
+      margin-bottom: 20px;
+
+      &::before {
+        display: block;
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        height: 1px;
+        background: #ddd;
+        top: 50%;
+      }
+
+      > span {
+        position: relative;
+        z-index: 10;
+        background: #fff;
+        display: inline-block;
+        padding-right: 15px;
+      }
+    }
+
+    &--imp {
+      
+      h4 {
+        color: @brand-danger;
+
+        &::before {
+          background: fade(@brand-danger, 25%);
+        }
+      }
+
+    }
+  }
+}
+
+.link-icons {
+  .clearfix();
+
+  > a {
+    float: left;
+    width: 220px;
+    margin-right: 10px;
+    margin-bottom: 20px;
+    font-size: 16px;
+    font-weight: bold;
+    position: relative;
+    padding-left: 42px;
+
+    > .fa {
+      width: 34px;
+      height: 34px;
+      line-height: 34px;
+      font-size: 18px;
+      text-align: center;
+      border-radius: 50%;
+      background: @brand-primary;
+      color: #fff;
+      position: absolute;
+      left: 0;
+      top: -8px;
+    }
+  }
+
+  // @media (max-width: @grid-float-breakpoint) {
+  //   > a {
+  //     margin-bottom: 20px;
+  //   }
+  // }
+}
+
+
+//
+// Features
+// --------------------------------------------------
+
+.v-car-features {
+  .clearfix();
+
+  &__section {
+    .clearfix();
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: fade(@text-color, 70%);
+    clear: left;
+    margin-bottom: 15px;
+    padding-top: 20px;
+
+    &:first-child {
+      padding-top: 0;
+      margin-top: 0;
+
+    }
+  }
+
+  &__item {
+    float: left;
+    width: 160px;
+    margin: 0 20px 2px 0;
+    color: fade(@text-color, 50%);
+    padding-left: 18px;
+    position: relative;
+    font-size: 12px;
+
+    .fa {
+      position: absolute;
+      font-size: 10px;
+      left: 3px;
+      top: 2px;
+      color: fade(@text-color, 25%);
+    }
+
+    &.active {
+      color: @text-color;
+
+      .fa {
+        color: @brand-success;
+      }
+    }
+  }
+}
+
+
+
+//
+// Enquire
+// --------------------------------------------------
+
+.enquire {
+  background: @author-box-bg !important;
+
+  &__header {
+    background: @author-box-additional-bg !important;
+  }
+}
+
+.r-callback {
+  background: @body-bg !important;
+  border-color: @lines-color !important;
+}
+
+.r-callback__toggle, 
+.r-callback__toggle:focus {
+  background: @body-bg !important;
+}
+
+.r-callback__content {
+  border-color: @lines-color !important;
+}

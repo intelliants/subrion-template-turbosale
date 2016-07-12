@@ -1,0 +1,35 @@
+
+//
+// Crutches
+// --------------------------------------------------
+
+.js-iad + .js-iad {
+	.form-control();
+	margin-top: 15px;
+}
+
+
+
+//
+// Cursor pointer for some elems
+// --------------------------------------------------
+
+.js-datepicker-toggle {
+	cursor: pointer;
+}
+
+
+
+//
+// Fix iOS zoom on input focus
+// --------------------------------------------------
+
+@media (max-width: @screen-xs-max) and (-webkit-min-device-pixel-ratio:0) { 
+  select,
+  textarea,
+  input,
+  input:focus,
+  input:hover {
+    font-size: 16px !important;
+  }
+}

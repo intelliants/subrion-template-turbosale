@@ -1,0 +1,867 @@
+.ia-card {
+	margin-bottom: @vr/2;
+	.clearfix();
+	position: relative;
+
+	&__image {
+		display: block;
+		position: relative;
+		text-decoration: none;
+		margin-bottom: 5px;
+		max-height: 140px;
+		overflow: hidden;
+
+		img {
+			.img-responsive();
+		}
+	}
+
+	&__sup-info {
+		position: absolute;
+		background: fade(#000, 50%);
+		color: #fff;
+		right: 0;
+		bottom: 0;
+		padding: 2px 4px;
+		font-size: 11px;
+	}
+
+	&__title,
+	&__title>a {
+		display: block;
+		font-weight: bold;
+		color: #000;
+		margin: 0;
+		font-size: 14px;
+		line-height: 15px;
+	}
+
+	&__price {
+		color: @brand-danger;
+		margin: 0;
+	}
+
+	&__info {
+		color: fade(#000, 40%);
+		font-size: 12px;
+		margin: 0;
+	}
+
+	@media (min-width: @grid-float-breakpoint) {
+		&--with-f-content {
+			.ia-card__image {
+				margin-bottom: 0;
+			}
+
+			.ia-card__sup-info {
+				z-index: 50;
+				background: none;
+				right: 10px;
+				bottom: 5px;
+			}
+		}
+
+		// FLOATING CONTENT
+		&__f-content {
+			position: absolute;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			z-index: 30;
+			padding: 5px 10px;
+			// background: fade(#000, 50%);
+			/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#000000+0,000000+100&0+0,0.65+100 */
+			background: -moz-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0,0,0,0.65) 100%); /* FF3.6-15 */
+			background: -webkit-linear-gradient(top, rgba(0,0,0,0) 0%,rgba(0,0,0,0.65) 100%); /* Chrome10-25,Safari5.1-6 */
+			background: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,0.65) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+			filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#a6000000',GradientType=0 ); /* IE6-9 */
+
+
+			.ia-card__title {
+				color: #fff;
+
+				&:hover {
+					color: @link-color;
+				}
+			}
+		}
+	}
+
+	@media (max-width: @grid-float-breakpoint) {
+		&__image {
+			float: left;
+			width: 120px;
+			margin-right: 10px;
+		}
+
+		&__title {
+			font-size: 18px;
+			line-height: 18px;
+		}
+
+		&__price {
+			font-weight: bold;
+		}
+
+		&__info {
+			font-size: 14px;
+		}
+
+		&__content {
+			overflow: hidden;
+		}
+	}
+}
+
+.ia-card-hr {
+	.clearfix();
+	padding: 0 0 15px;
+
+	& + & {
+		border-top: 1px solid #ddd;
+		padding-top: 15px;
+	}
+
+	&__image {
+		float: left;
+		margin-right: 15px;
+		width: 200px;
+		min-height: 100px;
+		overflow: hidden;
+		position: relative;
+
+		img {
+			.img-responsive();
+			display: none;
+		}
+
+		&--sm {
+			width: 60px;
+			min-height: 60px;
+		}
+	}
+
+	&__status {
+		position: absolute;
+		left: 0;
+		top: 0;
+		right: 0;
+		background: fade(#fff, 60%);
+		color: #000;
+		padding: 2px 10px;
+		text-align: center;
+		text-transform: uppercase;
+		font-weight: bold;
+		z-index: 500;
+
+		&.-sold {
+			background: fade(@brand-danger, 90%);
+			color: #fff;
+		}
+	}
+
+	&__sup-info {
+		position: absolute;
+		z-index: 50;
+		background: fade(#000, 50%);
+		color: #fff;
+		right: 0;
+		bottom: 5px;
+		padding: 2px 4px;
+		font-size: 11px;
+	}
+
+	&__content {
+		overflow: hidden;
+
+		&__head {
+			.clearfix();
+			margin-bottom: 5px;
+			font-size: 18px;
+		}
+	}
+
+	&__title {
+		float: left;
+		margin-right: 15px;
+		font-weight: bold;
+		color: @brand-dark;
+	}
+
+	&__price {
+		float: right;
+	}
+
+	&__info {
+		color: fade(@text-color, 70%);
+	}
+
+	&__comment {
+		font-size: 12px;
+		margin-top: 10px;
+	}
+
+	&__more {
+		margin-top: 20px;
+		color: fade(@text-color, 50%);
+		.clearfix();
+		font-size: 12px;
+		line-height: 20px;
+
+		> span {
+			float: left;
+			margin-right: 6px;
+		}
+
+		&__sep {
+			font-size: 5px;
+			color: fade(@text-color, 20%);
+		}
+
+		> .js-favorites {
+			float: right;
+			font-size: 14px;
+			color: @brand-danger;
+
+			&:hover {
+				color: @link-hover-color;
+			}
+		}
+	}
+
+	// statuses
+
+	// &--sponsored {
+	// 	background: #f7f4bf;
+	// }
+
+	@media (max-width: @grid-float-breakpoint) {
+		&__image {
+			width: 80px;
+			min-height: 0;
+		}
+
+		&__content__head {
+			font-size: 14px;
+			line-height: 14px;
+		}
+
+		&__title {
+			font-size: 14px;
+			line-height: 14px;
+			float: none;
+			display: block;
+			margin-right: 0;
+			margin-bottom: 5px;
+		}
+
+		&__price {
+			float: none;
+			font-size: 14px;
+			line-height: 14px;
+			color: @brand-danger;
+		}
+
+		&__info {
+			font-size: 12px;
+			line-height: 12px;
+		}
+
+		&__comment {
+			display: none;
+		}
+
+		&__sup-info {
+			bottom: auto;
+			top: 0;
+		}
+
+		&__more {
+			margin-top: 10px;
+		}
+	}
+}
+
+.ia-card-hr--service {
+	.ia-card-hr__image {
+		width: 160px;
+
+		@media (max-width: @grid-float-breakpoint) {
+			width: 80px;
+		}
+	}
+
+	.ia-card-hr__more {
+		margin-top: 10px;
+	}
+}
+
+
+
+//
+// Brazzers thumbs
+// --------------------------------------------------
+
+.brazzers-daddy:after {
+    content: "";
+    display: table;
+    clear: both
+}
+
+.brazzers-daddy {
+    position: relative;
+}
+
+.brazzers-daddy img {
+    width: 100%;
+    position: relative;
+    display: none;
+    top: 0;
+    left: 0;
+    margin-bottom: 4px
+}
+
+.brazzers-daddy img:first-child {
+    display: block
+}
+
+.tmb-wrap {
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    left: -4px;
+    right: -4px;
+    bottom: -4px;
+    // width: 100%;
+    // height: 100%
+}
+
+.tmb-wrap .tmb-wrap-table {
+    display: table;
+    border-spacing: 4px;
+    border-collapse: separate;
+    height: 100%;
+    width: 100%
+}
+
+.tmb-wrap-table div {
+    display: table-cell;
+    transition: all .3s ease;
+    border-bottom: 2px solid #ddd;
+    padding-top: 4px;
+    -webkit-transition: all .25s ease;
+    -o-transition: all .25s ease;
+    transition: all .25s ease
+}
+
+.tmb-wrap-table div.active {
+    border-color: @link-color
+}
+
+.tmb-wrap-table div:first-child:last-child {
+    border-color: transparent
+}
+
+
+// //
+// // Cards
+// // --------------------------------------------------
+
+// .ia-card {
+// 	background: @card-bg;
+// 	position: relative;
+// 	.transition(all .15s ease-in-out);
+
+// 	.label-status {
+// 		position: absolute;
+// 		right: 5px;
+// 		top: 5px;
+// 		z-index: 40;
+// 		font-size: 14px;
+// 	}
+
+// 	&__image {
+// 		position: relative;
+// 		display: block;
+
+// 		img {
+// 			.img-responsive();
+// 			width: 300px;
+// 		}
+
+// 		&__more {
+// 			display: none;
+// 		}
+// 	}
+
+// 	&__support-info {
+// 		color: #fff;
+// 		font-size: 12px;
+// 		line-height: 12px;
+// 		padding: @card-padding/2;
+// 		position: absolute;
+// 		left: 0;
+// 		bottom: 0;
+// 		right: 0;
+// 		.clearfix();
+
+// 		background: -moz-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0,0,0,0.85) 100%);
+// 		background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,0)), color-stop(100%,rgba(0,0,0,0.85)));
+// 		background: -webkit-linear-gradient(top, rgba(0,0,0,0) 0%,rgba(0,0,0,0.85) 100%);
+// 		background: -o-linear-gradient(top, rgba(0,0,0,0) 0%,rgba(0,0,0,0.85) 100%);
+// 		background: -ms-linear-gradient(top, rgba(0,0,0,0) 0%,rgba(0,0,0,0.85) 100%);
+// 		background: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,0.85) 100%);
+// 		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#a6000000',GradientType=0 );
+// 		display: none;
+// 	}
+
+// 	&__content {
+// 		padding: @card-padding*2 @card-padding 0;
+
+// 		> *:last-child {
+// 			margin-bottom: 0;
+// 		}
+// 	}
+
+// 	&__actions {
+// 		text-decoration: none;
+// 		float: right;
+
+// 		> a {
+// 			color: @card-actions-toggle-color;
+// 			display: inline-block;
+// 			font-size: 16px;
+// 			line-height: 16px;
+// 			padding: 0 10px;
+// 			position: relative;
+// 			z-index: 1001;
+			
+// 			&:hover {
+// 				text-decoration: none;
+// 				color: @card-actions-toggle-active-color;
+// 			}
+// 		}
+
+// 		.dropdown-menu {
+// 			margin-top: -31px;
+// 			min-width: 210px;
+
+// 			a {
+// 				padding-right: 20px;
+
+// 				> .fa {
+// 					padding: 3px 0;
+// 					float: left;
+// 					width: 16px;
+// 					margin-right: 6px;
+// 				}
+// 			}
+// 		}
+// 	}
+
+// 	&__badge {
+// 		position: absolute;
+// 		left: 15px;
+// 		top: 15px;
+// 		color: @text-color;
+// 		padding: 2px 6px;
+// 		font-size: 12px;
+// 		z-index: 150;
+// 		border-radius: @border-radius-base;
+// 		background: fade(#fff, 83%);
+
+// 		&--featured {
+// 			background: @brand-info;
+// 			color: #fff;
+// 		}
+
+// 		&--sponsored {
+// 			background: @brand-warning;
+// 			color: #fff;
+// 		}
+// 	}
+
+// 	&__title {
+// 		font-weight: bold;
+// 		display: block;
+// 		font-size: 16px;
+// 		line-height: 16px;
+// 		height: 32px;
+// 		overflow: hidden;
+// 		color: @card-title-color;
+// 		text-transform: uppercase;
+// 		text-decoration: none;
+// 	}
+
+// 	&__sub-title {
+// 		font-weight: bold;
+// 		font-size: 16px;
+// 		line-height: 16px;
+// 		color: @card-subtitle-color;
+// 		text-transform: uppercase;
+// 		text-decoration: none;
+// 	}
+
+// 	&__text {
+// 		color: @card-text-color;
+// 	}
+
+// 	// &.-featured {
+// 	// 	border-color: @brand-info;
+// 	// 	background: fade(@brand-info, 10%);
+// 	// }
+
+// 	// &.-sponsored {
+// 	// 	border-color: @brand-warning;
+// 	// 	background: fade(@brand-warning, 10%);
+// 	// }
+
+// 	&__additional {
+// 		color: fade(@text-color, 70%);
+// 		display: none;
+// 	}
+
+// 	.-additional {
+// 		display: none;
+// 	}
+// }
+
+// .ia-car-info {
+// 	// .clearfix();
+// 	display: none;
+
+// 	&__icon {
+// 		text-decoration: none;
+// 		display: inline-block;
+// 		padding-left: 32px;
+// 		margin-right: 15px;
+// 		position: relative;
+// 		line-height: 20px;
+// 		color: @text-color;
+
+// 		&::before {
+// 			content: '';
+// 			display: block;
+// 			position: absolute;
+// 			left: 0;
+// 			top: 50%;
+// 			width: 27px;
+// 			height: 20px;
+// 			margin-top: -10px;
+// 			background-repeat: no-repeat;
+// 			background-position: 0 0;
+// 		}
+
+// 		&--engine::before {
+// 			background-image: url('../img/icon-engine.png');
+// 		}
+
+// 		&--transmission::before {
+// 			background-image: url('../img/icon-transmission.png');
+// 		}
+
+// 		&--mileage::before {
+// 			background-image: url('../img/icon-speed.png');
+// 		}
+
+// 		&--body::before {
+// 			background-image: url('../img/icon-body.png');
+// 		}
+// 	}
+
+// 	&--block {
+// 		margin-top: 20px;
+
+// 		.ia-car-info__icon {
+// 			display: block;
+// 			margin-top: 15px;
+// 		}
+// 	}
+// }
+
+// .ia-car-summary {
+// 	display: none;
+// 	margin-top: 15px;
+// 	color: fade(@text-color, 70%);
+// }
+
+// .ia-card__info-table {
+// 	width: 100%;
+// 	font-size: 12px;
+// 	margin-bottom: 0;
+
+// 	td {
+// 		width: 50%;
+// 		padding: 5px 0;
+// 		border-bottom: 1px solid fade(@card-border-color, 20%);
+// 	}
+
+// 	tr:last-child td {
+// 		border-bottom: none;
+// 		padding-bottom: 0;
+// 	}
+
+// 	&.-more {
+// 		display: none;
+// 	}
+
+// 	&__color {
+// 		display: inline-block;
+// 		margin-right: 10px;
+// 		width: 20px;
+// 		height: 20px;
+// 		border: 1px solid #f0f0f0;
+// 	}
+// }
+
+// .ia-card--small {
+// 	padding: @card-padding/2;
+
+// 	.ia-card__content {
+// 		padding-top: @card-padding/2;
+// 	}
+
+// 	.ia-card__title {
+// 		font-size: 13px;
+// 	}
+
+// 	@media (max-width: @screen-sm) {
+// 		.ia-card--h();
+// 	}
+// }
+
+// .ia-card--h {
+// 	.clearfix();
+// 	border: 1px solid @lines-color;
+// 	padding: 15px;
+	
+// 	&__image {
+// 		float: left;
+// 		width: 170px;
+// 		margin-right: 10px;
+
+// 		&__more {
+// 			display: block;
+// 			float: left;
+// 			width: 50px;
+// 			margin-right: 10px;
+
+// 			img {
+// 				.img-responsive();
+// 			}
+
+// 			a {
+// 				display: block;
+
+// 				+ a {
+// 					margin-top: 10px;
+// 				}
+// 			}
+// 		}
+
+// 		@media (max-width: @screen-xs) {
+// 			width: 70px;
+// 			margin-right: 5px;
+// 		}
+// 	}
+
+// 	&__badge {
+// 		top: 30px;
+// 		left: 30px;
+// 	}
+
+// 	.label-status {
+// 		right: 40px;
+// 		top: 8px;
+// 	}
+
+// 	&__content {
+// 		margin-left: 180px;
+// 		// overflow: hidden;
+// 		padding-top: 0;
+// 		padding-bottom: 0;
+
+// 		@media (max-width: @screen-xs) {
+// 			margin-left: 80px;
+// 		}
+// 	}
+
+// 	&__title {
+// 		height: auto;
+// 	}
+
+// 	&__additional {
+// 		display: block;
+// 	}
+
+// 	.-additional {
+// 		display: table-row;
+// 	}
+
+// 	.ia-card__info-table,
+// 	.ia-card__text {
+// 		display: none;
+// 		// float: left;
+// 		// width: 54%;
+// 		// margin-right: 10px;
+// 	}
+
+// 	.ia-car-info,
+// 	.ia-car-summary {
+// 		display: block;
+// 	}
+// }
+// .ia-cards__items.-list .ia-card.-sponsored .ia-card__content {
+// 	margin-left: 240px;
+
+// 	@media (max-width: @screen-xs) {
+// 		margin-left: 80px;
+// 	}
+// }
+
+// .ia-card--hsm {
+// 	.clearfix();
+// 	background: #f2f2f2;
+// 	padding: 15px;
+
+// 	.ia-card__image {
+// 		float: left;
+// 		width: 80px;
+// 		margin-right: 10px;
+
+// 		img {
+// 			width: 80px;
+// 		}
+// 	}
+
+// 	.ia-card__content {
+// 		margin-left: 90px;
+// 		// overflow: hidden;
+// 		padding-top: 0;
+// 		padding-bottom: 0;
+// 	}
+
+// 	& + & {
+// 		margin-top: 10px;
+// 	}
+// }
+
+
+
+// //
+// // List
+// // --------------------------------------------------
+
+// .ia-cards {
+
+// 	.row {
+// 		margin-left: -5px;
+// 		margin-right: -5px;
+
+// 		+ .row {
+// 			margin-top: @vr;
+// 		}
+// 	}
+
+// 	[class^="col-md"] {
+// 		padding: 0 5px;
+// 	}
+
+// 	&__actions {
+// 		.clearfix();
+// 		margin-bottom: 15px;
+// 		background: @sorting-bg;
+// 		padding: 10px 15px;
+// 	}
+
+// 	&__sorting {
+// 		float: left;
+
+// 		@media (max-width: @screen-xs) {
+// 			float: none;
+// 		}
+
+// 		& when (@dark = true) {
+// 			.btn-default {
+// 				.btn-dark();
+// 			}
+// 		}
+// 	}
+
+// 	&__filter {
+// 		float: left;
+// 		margin: 0;
+
+// 		&__item {
+// 			display: inline-block;
+
+// 			select {
+// 				.form-control();
+// 				display: inline-block;
+// 				width: 130px !important;
+// 				margin-left: 5px;
+// 				vertical-align: middle;
+// 			}
+// 		}
+
+// 		button {
+// 			margin-left: 5px;
+// 		}
+
+// 		@media (max-width: @screen-xs) {
+// 			float: none;
+// 		}
+// 	}
+
+// 	&__layout {
+// 		float: right;
+
+// 		a {
+// 			display: inline-block;
+// 			// margin-left: 15px;
+// 		}
+
+// 		@media (max-width: @screen-xs) {
+// 			float: none;
+// 			margin-top: 10px;
+// 		}
+
+// 		& when (@dark = true) {
+// 			.btn-default {
+// 				.btn-dark();
+// 			}
+// 		}
+// 	}
+
+// 	&__items {
+
+// 		&.-list {
+
+// 			.row {
+// 				margin: 0;
+
+// 				+ .row {
+// 					margin-top: 10px;
+// 				}
+// 			}
+
+// 			[class^="col-md"] {
+// 				padding: 0;
+// 				float: none;
+// 				width: 100%;
+
+// 				+ [class^="col-md"] {
+// 					margin-top: 10px;
+// 				}
+// 			}
+
+// 			.ia-card {
+// 				.ia-card--h();
+// 			}
+// 		}
+// 	}
+
+// 	&__small {
+		
+// 	}
+// }

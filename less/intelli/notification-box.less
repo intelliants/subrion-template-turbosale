@@ -1,0 +1,55 @@
+
+//
+// Notification floating box
+// intelli.js - notifFloatBox
+// --------------------------------------------------
+
+.notifFloatBox {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: 15000;
+  padding: @vr/2;
+  display: none;
+  background: fade(@brand-info, 90%);
+  color: #fff;
+  
+  ul {
+    list-style-type: none;
+    padding: 0; 
+    margin: 0 30px 0 0;
+  }
+
+  a.close {
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
+  &--info {
+    background: fade(@brand-info, 90%);
+  }
+
+  &--success {
+    background: fade(@brand-success, 90%);
+  }
+
+  &--error {
+    background: fade(@brand-danger, 90%);
+  }
+
+  @media (min-width: @grid-float-breakpoint) {
+    padding: 18px 20px;
+    text-align: center;
+    font-size: 18px;
+    // left: auto;
+    // right: 20px;
+    // top: 20px;
+    // max-width: 300px;
+    // padding: 20px;
+    // border-radius: 4px;
+  }
+}

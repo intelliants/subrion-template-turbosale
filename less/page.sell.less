@@ -1,0 +1,251 @@
+
+.ia-form-info {
+  margin-bottom: 30px;
+  padding: 20px;
+  background: #f2f2f2;
+
+  > *:last-child {
+    margin-bottom: 0;
+  }
+}
+
+//
+// Sell car
+// --------------------------------------------------
+
+.ia-form-auto {
+  .nav-tabs {
+    display: none;
+  }
+
+  .tab-content {
+    border: 0 none;
+  }
+
+  .tab-pane {
+    padding: 0;
+  }
+
+  .fieldset__header {
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 0;
+  }
+
+  .ia-form__after-tabs {
+    border: 0 none;
+  }
+}
+
+// LAYOUT WITH WRAPS
+
+#fieldgroup_autos_general {
+  .ia-form-auto__wrp1 {
+    .row();
+
+    > .form-group {
+      .make-md-column(4);
+    }
+  }
+}
+
+#fieldgroup_make,
+#fieldgroup_autos_exterior,
+#fieldgroup_autos_interior {
+  .fieldset__content {
+    .row();
+
+    .form-group {
+      .make-md-column(4);
+    }
+  }
+}
+
+#fieldgroup_autos_engine {
+  .ia-form-auto__wrp1 {
+    .row();
+
+    > .form-group {
+      .make-md-column(4);
+    }
+
+    @media (max-width: @grid-float-breakpoint) {
+      margin-bottom: 15px;
+    }
+  }
+}
+
+#options_features_fieldzone {
+  .radios-list {
+    .row();
+
+    .checkbox {
+      margin: 0;
+      .make-md-column(3);
+
+      @media (max-width: @grid-float-breakpoint) {
+        margin-bottom: 12px;
+      }
+    }
+
+    @media (max-width: @grid-float-breakpoint) {
+      margin-left: 0;
+      margin-right: 0;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      border: 1px solid @border-color;
+      height: 200px;
+      overflow: auto;
+      .scrollbar();
+    }
+
+  }
+}
+
+// make checks and radios inline
+
+#metallic_fieldzone,
+#interior_leather_fieldzone,
+#fuel_type_fieldzone,
+#exchange_fieldzone {
+  .radios-list {
+    padding: 6px 0;
+  }
+  .radio {
+    margin: 0;
+    .radio-inline();
+
+    &:first-child {
+      padding-left: 0;
+    }
+  }
+
+  .checkbox {
+    margin: 0;
+    .checkbox-inline();
+
+    &:first-child {
+      padding-left: 0;
+    }
+  }
+}
+
+#exchange_fieldzone {
+  margin-bottom: 10px;
+}
+
+#fieldgroup_status .fieldset__header {
+  display: none;
+}
+
+
+
+//
+// Services
+// --------------------------------------------------
+
+.ia-form-services,
+.ia-form-parts {
+  .nav-tabs {
+    display: none;
+  }
+
+  .tab-content {
+    border: 0 none;
+  }
+
+  .tab-pane {
+    padding: 0;
+  }
+
+  .fieldset__header {
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 0;
+  }
+
+  .categories-tree {
+    height: 328px;
+    overflow: auto;
+    border: 1px solid @border-color;
+    border-top: 0;
+    .scrollbar();
+  }
+
+  .ia-form__after-tabs {
+    border: 0 none;
+  }
+}
+
+#categories_fieldzone {
+  .form-control {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+}
+
+#fieldgroup_autos_services_general {
+  .ia-form-services__wrp {
+    .row();
+
+    .ia-form-services__wrp__inner {
+      .make-md-column(6);
+    }
+  }
+}
+
+#company_address_fieldzone {
+  margin-top: 15px;
+}
+
+
+
+//
+// Parts
+// --------------------------------------------------
+
+#fieldgroup_autos_parts_general {
+  .fieldset__content {
+    .row();
+
+    #categories_fieldzone {
+      .make-md-column(4);
+      
+    }
+    .ia-form-services__wrp {
+      .make-md-column(8);
+    }
+  }
+}
+
+.ia-form-services__wrp2 {
+  .row();
+}
+
+#price_fieldzone {
+  .make-md-column(6);
+}
+#part_condition_fieldzone {
+  .make-md-column(6);
+
+  .radios-list {
+    padding: 6px 0;
+  }
+  .radio {
+    margin: 0;
+    .radio-inline();
+
+    &:first-child {
+      padding-left: 0;
+    }
+  }
+
+  .checkbox {
+    margin: 0;
+    .checkbox-inline();
+
+    &:first-child {
+      padding-left: 0;
+    }
+  }
+}

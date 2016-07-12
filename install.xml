@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="utf-8"?>
+<template name="turbosale">
+	<title>Turbosale</title>
+	<summary>Template for Subrion Autos Script</summary>
+	<author>Gleb Surinov</author>
+	<contributor>Intelliants LLC</contributor>
+	<version>1.1.4</version>
+	<date>2016-04-19</date>
+	<compatibility>4.0</compatibility>
+
+	<dependency type="package" exist="1">autos</dependency>
+
+	<layout>
+		<position menu="1" movable="0">account</position>
+		<position menu="1" movable="0">mainmenu</position>
+
+		<position>search</position>
+		<position>popular_makes</position>
+		<position>sponsored</position>
+		<position>recent</position>
+		<position>welcome</position>
+		<position>verytop</position>
+		<position>landing</position>
+		<position>top</position>
+		<position>bottom</position>
+		<position>verybottom</position>
+
+		<section name="content">
+			<position fixed="1">left</position>
+			<position width="9">center</position>
+		</section>
+	</layout>
+
+	<screenshots>
+		<screenshot name="1.jpg"><![CDATA[Home page]]></screenshot>
+		<screenshot name="3.jpg"><![CDATA[View car page]]></screenshot>
+		<screenshot name="4.jpg"><![CDATA[Search cars with filters]]></screenshot>
+	</screenshots>
+
+	<configgroup name="template_turbosale">Template</configgroup>
+
+	<config group="template_turbosale"
+		    name="turbosale_divider1"
+		    type="divider"
+		    order="3000">General</config>
+
+	<config group="template_turbosale"
+		    name="max_top_menu_items"
+		    type="text"
+		    description="Max number of items in Main Menu"
+		    order="3002">7</config>
+
+	<config group="template_turbosale"
+		    name="fixed_navbar"
+		    type="hidden"
+		    order="3003"
+		    values="1,0"
+		    description="Fixed navbar">1</config>
+
+	<config group="template_turbosale"
+		    name="template_color_scheme"
+		    type="select"
+		    multiplevalues="default,dark"
+		    description="Template color"
+		    order="3004">default</config>
+
+	<config group="template_turbosale"
+		    name="template_layout"
+		    type="hidden"
+		    multiplevalues="wide,boxed"
+		    description="Template layout"
+		    order="3005">wide</config>
+
+	<config group="template_turbosale"
+		    name="website_bg"
+		    type="image"
+		    description="Header background"
+		    order="3006"><![CDATA[]]></config>
+
+	<config group="template_turbosale"
+		    name="tools_as_floating_box"
+		    type="radio"
+		    order="3007"
+		    values="1,0"
+		    description="Show Tools in floating box">1</config>
+
+	<config group="template_turbosale"
+		    name="template_fotorama_car"
+		    type="select"
+		    multiplevalues="contain,cover,scaledown,none"
+		    description="Fotorama fit method for cars"
+		    order="3008">cover</config>
+
+	<config group="template_turbosale"
+		    name="template_fotorama_service"
+		    type="select"
+		    multiplevalues="contain,cover,scaledown,none"
+		    description="Fotorama fit method for services"
+		    order="3009">cover</config>
+
+	<config group="template_turbosale"
+		    name="template_fotorama_part"
+		    type="select"
+		    multiplevalues="contain,cover,scaledown,none"
+		    description="Fotorama fit method for parts"
+		    order="3010">contain</config>
+
+	<config group="template_turbosale"
+		    name="turbosale_divider2"
+		    type="divider"
+		    order="3030">Social links</config>
+
+	<config group="template_turbosale"
+			name="template_social"
+		    type="radio"
+		    order="3031"
+		    values="1,0"
+		    description="Show links">1</config>
+	<config group="template_turbosale"
+			name="template_social_t"
+		    type="text"
+		    order="3032"
+		    show="template_social|1"
+		    description="Twitter Link">https://twitter.com/IntelliantsLLC</config>
+	<config group="template_turbosale"
+			name="template_social_f"
+		    type="text"
+		    order="3033"
+		    show="template_social|1"
+		    description="Facebook Link">https://www.facebook.com/Intelliants</config>
+	<config group="template_turbosale"
+			name="template_social_g"
+		    type="text"
+		    order="3034"
+		    show="template_social|1"
+		    description="Google+ Link">https://plus.google.com/102500660503219569194/posts</config>
+	<config group="template_turbosale"
+			name="template_social_y"
+		    type="text"
+		    order="3035"
+		    show="template_social|1"
+		    description="You Tube Link">#</config>
+	<config group="template_turbosale"
+			name="template_social_i"
+		    type="text"
+		    order="3035"
+		    show="template_social|1"
+		    description="Instagram Link">#</config>
+	<config group="template_turbosale"
+		    name="ckeditor_css"
+		    type="hidden"
+		    description="CKEditor CSS"
+		    order="3099">ckeditor.css</config>
+
+	<changeset>
+		<menu position="account" status="active">account</menu>
+		<menu position="footer1" status="active" header="1">bottom</menu>
+		<menu position="footer2" status="active" header="1" collapsible="0">autos</menu>
+
+		<block position="search" status="active" sticky="1" header="0">autos_search</block>
+		<block status="active" classname="box--border">filters</block>
+		<block position="popular_makes" status="active" sticky="1" header="0" collapsible="0">auto_make_list</block>
+		<block position="bodystyle" status="active" sticky="1" header="0" collapsible="0">auto_body_list</block>
+		<block position="recent" status="active" sticky="0" pages="index" title="Recently added cars for sale" header="0" collapsible="0">auto_recent</block>
+		<block position="sponsored" status="active" pages="index" header="0">auto_sponsored</block>
+		<block position="tools" header="0" status="active" sticky="1" order="1">autos_tools</block>
+		<block position="verybottom" header="0" status="active" sticky="0" pages="autos_index,autos_index_latest,autos_index_featured,autos_index_popular,autos_index_random,search_autos,autos_models,autos_services,autos_service_view" order="99">auto_random</block>
+
+		<block position="landing" order="69" status="active" sticky="0" pages="index" header="0">autos_services_categories</block>
+		<block position="landing" order="99" status="active" sticky="0" pages="index" header="0">autos_parts_categories</block>
+		<block position="landing" order="199" status="active" sticky="0" pages="index" header="0">latest_news</block>
+
+		<block status="inactive">blogroll</block>
+		<block status="inactive">auto_year_list</block>
+	</changeset>
+
+	<blocks>
+		<block name="welcome"
+			   title="Welcome to Turbosale"
+			   position="welcome"
+			   header="1"
+			   collapsible="0"
+			   sticky="0"
+			   pages="index"
+			   status="active"
+			   order="-1"
+			   type="smarty">
+			<![CDATA[
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste molestias fuga doloremque animi suscipit ullam dicta. Sequi culpa aperiam placeat iste, provident sed, nisi doloribus ipsum nam incidunt ullam libero.
+</p>
+<p class="m-t m-b"><a href="{$core.packages.autos.url}add/" class="btn btn-primary">Sell your car</a></p>
+			]]>
+		</block>
+		<block name="welcome_banner"
+			   title="Welcome banner"
+			   position="welcome"
+			   header="0"
+			   collapsible="0"
+			   sticky="0"
+			   pages="index"
+			   status="active"
+			   type="smarty">
+			<![CDATA[
+<img class="img-responsive m-t" src="{$img}bn-sample.png" alt=""/>
+			]]>
+		</block>
+		<block name="recent_btns"
+			   title="Home page links"
+			   position="recent"
+			   header="0"
+			   collapsible="0"
+			   sticky="0"
+			   pages="index"
+			   status="active"
+			   type="smarty">
+			<![CDATA[
+<div class="b-cars-top__btns">
+	<div class="row">
+		<div class="col-sm-4">
+			<p><a href="{$core.packages.autos.url}autos/" class="link link--large">All cars for sale</a></p>
+			<p class="text-small">We already have <b>{$num_autos}</b> cars for sale</p>
+		</div>
+		<div class="col-sm-8">
+			<p><a href="{$core.packages.autos.url}add/" class="link link--large link--success">Sell a car</a></p>
+			<p class="text-small">Quickly and hassle free list your car</p>
+		</div>
+	</div>
+</div>
+			]]>
+		</block>
+	</blocks>
+
+	<phrases>
+		<phrase category="frontend" key="road_not_fount">Road not found</phrase>
+		<phrase category="frontend" key="login_sign_up">My Account</phrase>
+		<phrase category="frontend" key="sell_car">Sell a car</phrase>
+
+		<phrase category="frontend" key="cars">Cars</phrase>
+		<phrase category="frontend" key="makes">Makes</phrase>
+		<phrase category="frontend" key="search_for_cars">Search for a car for sale</phrase>
+		<phrase category="frontend" key="adv_search">Advanced search</phrase>
+		<phrase category="frontend" key="adv_search_hide">Hide advanced search</phrase>
+		<phrase category="frontend" key="qsearch_bodystyle">Body</phrase>
+		<phrase category="frontend" key="qsearch_popular">Popular cars</phrase>
+		<phrase category="frontend" key="qsearch_latest">Recently added</phrase>
+		<phrase category="frontend" key="qsearch_featured">Featured</phrase>
+		<phrase category="frontend" key="as_price_min">Price from</phrase>
+		<phrase category="frontend" key="as_price_max">Price to</phrase>
+		<phrase category="frontend" key="as_year_min">Year from</phrase>
+		<phrase category="frontend" key="as_year_max">Year to</phrase>
+		<phrase category="frontend" key="as_mileage_min">Milage from</phrase>
+		<phrase category="frontend" key="as_mileage_max">Milage to</phrase>
+		<phrase category="frontend" key="more_makes">More makes</phrase>
+		<phrase category="frontend" key="less_makes">Less makes</phrase>
+
+		<phrase category="frontend" key="all_services">All services</phrase>
+		<phrase category="frontend" key="add_service">Add service</phrase>
+		<phrase category="frontend" key="all_parts">All parts</phrase>
+		<phrase category="frontend" key="add_part">Add part</phrase>
+
+		<phrase category="frontend" key="total_cars_found">Total cars found</phrase>
+	</phrases>
+</template>

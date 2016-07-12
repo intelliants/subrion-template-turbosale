@@ -1,0 +1,130 @@
+//
+// Sorting
+// --------------------------------------------------
+
+.sorting {
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 15px;
+  padding-bottom: 5px;
+  font-size: 12px;
+  line-height: 16px;
+
+  &__links {
+    display: inline-block;
+    margin-right: 15px;
+
+    > span,
+    > a {
+      display: inline-block;
+      margin-right: 10px;
+
+      &.pull-right {
+        margin-right: 0;
+        margin-left: 10px;
+        color: fade(@text-color, 50%)
+      }
+    }
+
+    > a {
+      text-decoration: none;
+
+      &,
+      &:focus,
+      &:active {
+        border-bottom: 1px dotted @link-color;
+      }
+
+      &:hover {
+        border-bottom-color: @link-hover-color;
+      }
+
+      &.active {
+
+        &,
+        &:focus,
+        &:active,
+        &:hover {
+          color: @brand-danger;
+          border-bottom-color: transparent;
+        }
+      }
+    }
+  }
+
+  &__head {
+    color: fade(@text-color, 50%);
+    display: inline-block;
+    margin-right: 15px;
+  }
+
+  &__num-found {
+    float: right;
+  }
+
+  @media (max-width: @grid-float-breakpoint) {
+
+    &__links {
+      margin-bottom: 10px;
+    }
+
+    &__head {
+      display: block;
+      margin-right: 0;
+      margin-bottom: 10px;
+    }
+
+    &__num-found {
+      float: none;
+      display: block;
+    }
+  }
+}
+
+//
+// Categories
+// --------------------------------------------------
+
+.ia-categories {
+
+  @media (max-width: @grid-float-breakpoint) {
+    .row {
+      [class*="col-md"] + [class*="col-md"] {
+        margin-top: 0px;
+      }
+    }
+  }
+}
+
+.ia-cat {
+  color: fade(@text-color, 40%);
+  margin-bottom: 3px;
+
+  a,
+  a:focus,
+  a:active {
+    color: @text-color;
+    text-decoration: none;
+  }
+
+  a:hover {
+    color: @link-hover-color;
+    text-decoration: underline;
+  }
+
+  &__sub {
+    margin-left: 15px;
+    font-size: 12px;
+    margin-bottom: 15px;
+    color: fade(@text-color, 50%);
+  }
+
+  @media (max-width: @grid-float-breakpoint) {
+    font-size: 18px;
+    line-height: 20px;
+    margin-bottom: 15px;
+  }
+}
+
+.ia-models {
+  margin-bottom: @vr !important;
+}

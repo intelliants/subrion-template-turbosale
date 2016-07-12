@@ -1,0 +1,38 @@
+
+//
+// Banners and stuff
+// --------------------------------------------------
+
+.bdn-latest { // top banner - near latest cars
+	margin-top: @vr;
+
+	@media (max-width: @grid-float-breakpoint) {
+		img {
+			display: block;
+			margin: 0 auto;
+		}
+	}
+}
+
+.bdn-static { // static bottom banner
+	background: #e8e8e8;
+	padding: @vr 0;
+
+	h3 {
+		font-size: 22px;
+		line-height: 28px;
+		font-weight: bold;
+		margin: 0;
+	}
+
+	p {
+		margin: 0;
+	}
+}
+
+.bdn-aside { // right column banner
+	img {
+		.img-responsive;
+	}
+}
+

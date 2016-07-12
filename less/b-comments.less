@@ -1,0 +1,94 @@
+.b-comments {
+	margin-top: @vr;
+
+	.sec-header {
+		background: #f2f2f2;
+		padding: 10px;
+		margin-bottom: 0;
+
+		.box__caption {
+			line-height: 22px;
+		}
+	}
+
+	&__offer {
+		font-weight: normal;
+		margin: 0 0 0 20px;
+		padding-top: 5px;
+		padding-bottom: 5px;
+	}
+
+	.comment-form {
+		border: 0 none;
+		background: #f5f5f5;
+	}
+}
+
+.comments-list {
+	margin-top: 20px;
+}
+
+.comment {
+	
+	// + .comment {
+	// 	border-top: 0 !important;
+	// 	padding-top: 0 !important;
+	// }
+
+	&__ex {
+		color: @brand-success;
+		// margin-left: 15px;
+	}
+
+	&__date {
+		float: right;
+		font-size: 12px;
+	}
+
+	&__ava {
+		width: 20px !important;
+		height: 20px !important;
+		margin-top: -2px;
+	}
+
+	&__head {
+		// position: relative;
+	}
+
+	&__body {
+		.clearfix();
+
+		.ia-card {
+			float: left;
+			margin-bottom: 0;
+			margin-right: 30px;
+			border: 1px dashed #eee;
+			padding: 10px;
+			position: relative;
+			width: 300px;
+
+			&__subtitle {
+				background: @brand-success;
+				position: absolute;
+				color: #fff;
+				font-weight: bold;
+				font-size: 11px;
+				padding: 0 4px;
+				left: -1px;
+				top: -30px;
+			}
+
+
+			.ia-card__image {
+				float: left;
+				margin-right: 10px;
+				width: 100px;
+				margin-bottom: 0;
+			}
+
+			.ia-card__content {
+				overflow: hidden;
+			}
+		}
+	}
+}

@@ -1,0 +1,244 @@
+
+//
+// Navbar
+// --------------------------------------------------
+
+.navbar-brand {
+  padding: 0 15px;
+
+  span {
+    width: 150px;
+    height: 33px;
+    margin: (@navbar-height - 33)/2 0;
+    display: block;
+    text-indent: -9999px;
+    overflow: hidden;
+    background-repeat: no-repeat;
+
+    .img-retina(@logo-path, @logo-path2x, 150px, 33px);
+  }
+}
+
+@media (min-width: @grid-float-breakpoint) {
+
+  .navbar-nav {
+    padding: (@navbar-height - @line-height-computed)/2 0;
+
+    > li {
+      border-top: 0;
+
+      > a {
+        line-height: @line-height-computed;
+        padding-top: 0;
+        padding-bottom: 0;
+        font-size: 12px;
+        .fa {
+          color: fade(@navbar-default-link-color, 30%);
+        }
+      }
+
+      > .dropdown-menu {
+        margin-top: 15px;
+        border-radius: 0;
+
+        &::before {
+          right: auto;
+          left: 15px;
+        }
+      }
+    }
+
+    &.navbar-right > li > .dropdown-menu {
+      &::before {
+        left: auto;
+        right: 15px;
+      }
+    }
+  }
+
+  .navbar-btn {
+    font-size: 12px;
+    line-height: @line-height-computed;
+    border-radius: 0;
+    margin-right: 0;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    padding-top: 19px;
+    padding-bottom: 19px;
+  }
+}
+
+// Default navbar
+.navbar-default {
+  margin-bottom: 0;
+  border: 0 none;
+  // .box-shadow(0 1px 3px rgba(0,0,0,.3));
+  .box-shadow(none);
+
+  .navbar-nav > .open > a,
+  .navbar-nav > .active > a {
+    background-color: darken(@navbar-default-link-active-bg, 5%);
+  }
+
+  .navbar-toggle {
+    position: relative;
+    padding: 0;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    width: 30px;
+    height: 30px;
+    border: 0 none;
+    background: none;
+
+    &:hover,
+    &:focus,
+    &:active {
+      background: none;
+    }
+
+    [class^="kebab"] {
+      position: absolute;
+      left: 3px;
+      right: 3px;
+      border-radius: 1px;
+      height: 2px;
+      background: @navbar-default-link-active-color;
+      .transition(all .15s ease-in-out);
+    }
+
+    .kebab-1 {
+      top: 14px;
+      .rotate(45deg);
+    }
+
+    .kebab-2 {
+      display: none;
+    }
+
+    .kebab-3 {
+      top: 14px;
+      .rotate(-45deg);
+    }
+
+    &.collapsed {
+      .kebab-1 {
+        top: 8px;
+        .rotate(0);
+      }
+
+      .kebab-2 {
+        top: 14px;
+        display: block;
+      }
+
+      .kebab-3 {
+        top: 20px;
+        .rotate(0);
+      }
+    }
+  }
+}
+
+.navbar-add-car {
+  display: block;
+  text-decoration: none;
+  color: @brand-success;
+  float: right;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  padding-left: 15px;
+  padding-right: 25px;
+  height: 30px;
+  line-height: 34px;
+  text-align: center;
+  position: relative;
+  font-size: 22px;
+
+  > .fa {
+    position: absolute;
+    right: 16px;
+    top: -1px;
+    font-size: 18px;
+  }
+
+  &:hover,
+  &:focus,
+  &:active {
+    text-decoration: none;
+    color: @link-color;
+  }
+
+  @media (min-width: @grid-float-breakpoint-max) {
+    display: none;
+  }
+}
+
+
+
+// Undo rounded corners in static and fixed navbars
+.navbar-static-top,
+.navbar-fixed-top,
+.navbar-fixed-bottom {
+  border-radius: 0;
+  
+}
+
+// Fix active state of dropdown items in collapsed mode
+@media (max-width: @grid-float-breakpoint-max) {
+  .navbar .navbar-nav .open .dropdown-menu > .active > a {
+    &,
+    &:hover,
+    &:focus {
+      color: #fff;
+      #gradient > .vertical(@start-color: @dropdown-link-active-bg; @end-color: darken(@dropdown-link-active-bg, 5%));
+    }
+  }
+
+  .navbar-collapse {
+    .navbar-btn {
+      .btn-block;
+    }
+
+    .navbar-nav {
+      margin-top: 0;
+      margin-bottom: 0;
+
+      > li {
+        border-bottom: 1px solid fade(#fff, 3%);
+      }
+
+      .dropdown-toggle {
+        .fa-angle-down {
+          float: right;
+        }
+      }
+      
+      .dropdown-menu {
+        position: static;
+        float: none !important;
+        display: none;
+        background: fade(#fff, 3%);
+        margin: 0;
+
+        > li {
+          border-bottom: 1px solid fade(#fff, 3%);
+          &:last-child {
+            border-bottom: 0 none;
+          }
+
+          > a {
+            padding-left: 30px;
+          }
+        }
+
+        &::before {
+          display: none;
+        }
+      }
+
+      .open .dropdown-menu {
+        display: block;
+      }
+    }
+  }
+}

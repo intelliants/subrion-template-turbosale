@@ -1,0 +1,107 @@
+.ia-member-view {
+	margin-bottom: 30px;
+
+	.v-item-head__table {
+		td:first-child {
+			width: 20%;
+		}
+
+		td {
+			vertical-align: top;
+		}
+	}
+
+	&__social {
+		text-align: right;
+
+		a {
+			display: inline-block;
+			margin-left: 10px;
+			width: 30px;
+			height: 30px;
+			text-align: center;
+			line-height: 30px;
+			background: #eee;
+			color: #999;
+			border-radius: 50%;
+
+			&:hover {
+				color: #fff;
+				background: @brand-primary;
+			}
+		}
+	}
+}
+
+
+
+//
+// Registration page
+// --------------------------------------------------
+
+.ia-form-user-register {
+
+	.nav-tabs {
+	  display: none;
+	}
+
+	.tab-content {
+	  border: 0 none;
+	}
+
+	.tab-pane {
+	  padding: 0;
+	}
+
+	.fieldset__header {
+	  margin-left: 0;
+	  margin-right: 0;
+	  padding-left: 0;
+	}
+
+	.ia-form__after-tabs {
+	  border: 0 none;
+	}
+
+	label small {
+		color: fade(@text-color, 50%);
+		display: inline-block;
+		margin-left: 10px;
+	}
+}
+
+#fieldgroup_general,
+#fieldgroup_social {
+	.fieldset__content {
+	  .row();
+
+	  .form-group {
+	    .make-md-column(6);
+	  }
+	}
+}
+
+
+
+//
+// Funds
+// --------------------------------------------------
+
+.funds-add {
+	background: #f2f2f2;
+	padding: 20px;
+
+	&__table {
+		width: 100%;
+		font-size: 12px;
+
+		td {
+			padding-right: 20px;
+			color: fade(@text-color, 50%);
+
+			&:first-child {
+				width: 40%;
+			}
+		}
+	}
+}

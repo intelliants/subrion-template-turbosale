@@ -1,0 +1,94 @@
+.b-cars-top {
+  .box-shadow(0 1px 40px rgba(0,0,0,.1));
+  padding: @vr 0;
+  position: relative;
+  z-index: 20;
+  background: #fff;
+
+  &__hot {
+    background: #fffdd4;
+    border-bottom: 1px solid #f7f4bf;
+    margin-top: -@vr;
+    margin-bottom: @vr;
+    padding-top: 15px;
+
+    .sec-header {
+      margin-bottom: 0;
+
+      .box__caption {
+        margin-bottom: 15px;
+        color: #ff827c;
+      }
+    }
+
+    .row {
+      margin-left: -5px;
+      margin-right: -5px;
+
+      [class^="col-"] {
+        padding-left: 5px;
+        padding-right: 5px;
+      }
+    }
+
+    @media (max-width: @grid-float-breakpoint) {
+      [class^="col-"] + [class^="col-"] {
+        margin-top: 0;
+      }
+
+      .sec-header {
+        margin-bottom: 15px;
+
+        .box__caption {
+          margin-bottom: 0;
+        }
+      }
+    }
+
+    &--inner {
+      margin-top: -12px;
+    }
+  }
+
+  &__btns {
+    margin-top: 20px;
+
+    p {
+      margin: 0;
+      color: fade(@text-color, 70%);
+    }
+
+    @media (max-width: @screen-sm) {
+      margin-top: 5px;
+
+      [class^="col-sm"] + [class^="col-sm"] {
+        margin-top: 10px;
+      }
+    }
+  }
+}
+
+.recent-cars {
+  .row {
+    margin-left: -5px;
+    margin-right: -5px;
+
+    [class^="col-"] {
+      padding-left: 5px;
+      padding-right: 5px;
+    }
+  }
+
+  @media (max-width: @grid-float-breakpoint) {
+    [class^="col-"] + [class^="col-"] {
+      margin-top: 0;
+    }
+  }
+}
+
+.quick-search-links {
+  @media (max-width: @grid-float-breakpoint) {
+    font-size: 18px;
+    line-height: 26px;
+  }
+}
