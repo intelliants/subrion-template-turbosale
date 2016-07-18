@@ -24,7 +24,7 @@
 		<link rel="shortcut icon" href="{$core.page.nonProtocolUrl}favicon.ico">
 
 		{ia_add_media files="jquery, subrion, bootstrap" order=0}
-		{ia_print_js files='_IA_TPL_app' order=999}
+		{ia_print_js files='_IA_TPL_owl.carousel.min, _IA_TPL_app' order=999}
 
 		{ia_hooker name='smartyFrontAfterHeadSection'}
 
@@ -109,7 +109,7 @@ intelli.pageName = '{$core.page.name}';
 								{ia_blocks block='landing'}
 							</div>
 							<div class="col-md-3">
-								{ia_blocks block='left'}
+								{ia_blocks block='right'}
 							</div>
 						</div>
 					</div>
@@ -156,20 +156,16 @@ intelli.pageName = '{$core.page.name}';
 									{ia_blocks block='bottom'}
 								</div>
 							</div>
-							<div class="{width section='content' position='left' tag='col-md-'} aside">
+							<div class="{width section='content' position='right' tag='col-md-'} aside">
 								{if in_array($core.page.name, array('autos_services', 'autos_service_view', 'autos_member_services'))}
-									<a href="{$smarty.const.IA_URL}service/add/" class="btn btn-success btn-lg btn-block btn-has-icon m-b">Добавить услугу <span class="icon-repair-service"></span></a>
+									<a href="{$smarty.const.IA_URL}service/add/" class="btn btn-success btn-lg btn-block btn-has-icon m-b">{lang key='add_service'} <span class="icon-repair-service"></span></a>
 								{/if}
 
 								{if in_array($core.page.name, array('autos_parts', 'autos_part_view', 'autos_member_parts'))}
-									<a href="{$smarty.const.IA_URL}part/add/" class="btn btn-success btn-lg btn-block btn-has-icon m-b">Продать запчасть <span class="icon-piston"></span></a>
+									<a href="{$smarty.const.IA_URL}part/add/" class="btn btn-success btn-lg btn-block btn-has-icon m-b">{lang key='sell_parts'} <span class="icon-piston"></span></a>
 								{/if}
 
-								{ia_blocks block='left'}
-
-								{include file='block.same-model-autos.tpl'}
-
-								{include file='block.related-autos.tpl'}
+								{ia_blocks block='right'}
 							</div>
 						</div>
 					</div>
@@ -187,47 +183,16 @@ intelli.pageName = '{$core.page.name}';
 			<div class="container">
 				{ia_hooker name='smartyFrontBeforeFooterLinks'}
 				<div class="row">
-					<div class="col-md-4">
-						<div class="b-footer">
-							<h4 class="b-footer__heading">Машины в Бишкеке</h4>
-							<div class="b-footer__content">
-								<div class="row">
-									<div class="col-md-5 col-sm-6 col-xs-6">
-										<ul class="list-unstyled">
-											<li><a href="{$smarty.const.IA_URL}autos/">Автомобили</a></li>
-											<li><a href="{$smarty.const.IA_URL}members/?group=9">Автосалоны</a></li>
-											<!-- <li><a href="#">Мотоциклы</a></li> -->
-											<!-- <li><a href="#">Спецтехника</a></li> -->
-											<li><a href="{$smarty.const.IA_URL}services/">Услуги</a></li>
-											<li><a href="{$smarty.const.IA_URL}parts/">Запчасти</a></li>
-										</ul>
-									</div>
-									<div class="col-md-5 col-sm-6 col-xs-6">
-										<ul class="list-unstyled">
-											<li><a href="{$smarty.const.IA_URL}autos/">Все авто в Бишкеке</a></li>
-											<li><a href="{$smarty.const.IA_URL}popular/">Самые популярные</a></li>
-											<li><a href="{$smarty.const.IA_URL}latest/">Свежие машины</a></li>
-											<li><a href="{$smarty.const.IA_URL}random/">Мне повезет!</a></li>
-										</ul>
-									</div>
-								</div>
-							</div>
-						</div>
+					<div class="col-md-2">
+						{ia_blocks block='footer1'}
+					</div>
+					<div class="col-md-2">
+						{ia_blocks block='footer2'}
 					</div>
 					<div class="col-md-4">
-						<div class="b-footer">
-							<h4 class="b-footer__heading">Информация</h4>
-							<div class="b-footer__content">
-								<ul class="list-unstyled">
-									<li><a href="{$smarty.const.IA_URL}about/">О проекте</a></li>
-									<li><a class="text-danger" href="{$smarty.const.IA_URL}advertise.html">Реклама на сайте</a></li>
-									<li><a href="{$smarty.const.IA_URL}help/">Помощь</a></li>
-									<li><a href="{$smarty.const.IA_URL}contacts/">Контакты</a></li>
-								</ul>
-							</div>
-						</div>
+						{ia_blocks block='footer3'}
 					</div>
-					<div class="col-md-4">
+					<div class="col-md-3 col-md-offset-1">
 						<a class="footer-brand" href="{$smarty.const.IA_URL}">
 							{if !empty($core.config.site_logo)}
 								<img src="{$core.page.nonProtocolUrl}uploads/{$core.config.site_logo}" alt="{$core.config.site}">
@@ -255,7 +220,7 @@ intelli.pageName = '{$core.page.name}';
 
 		<button class="scroll-to-top js-scroll-to-top" type="button"><span class="fa fa-angle-up"></span></button>
 
-		{*ia_blocks block='tools'*}
+		{ia_blocks block='tools'}
 
 		<!-- SYSTEM STUFF -->
 

@@ -66,6 +66,52 @@
 
 							<input id="range_{$field.name}_from" type="hidden" name="{$field.name}[f]" maxlength="{$field.length}" {if $selected} value="{$selected.f|escape:'html'}"{/if}>
 							<input id="range_{$field.name}_to" type="hidden" name="{$field.name}[t]" maxlength="{$field.length}" {if $selected} value="{$selected.t|escape:'html'}"{/if}>
+
+							{ia_add_js}
+$(function()
+{
+	$('#range_{$field.name}').ionRangeSlider(
+	{
+		type: 'double',
+		force_edges: true,
+		min: "{$field.range[0]}",
+		max: "{$field.range[1]}",
+		from: "{$field.range[0]}",
+		to: "{$field.range[1]}",
+		{if 'release_year' == $field.name}
+			prettify_enabled: false,
+			step: 1,
+		{else}
+			step: 1000,
+		{/if}
+		onFinish: function(obj)
+		{
+			$('#range_{$field.name}_from').val(obj.from).trigger('change');
+			$('#range_{$field.name}_to').val(obj.to).trigger('change');
+		}
+	});
+
+	var ionSlider_{$field.name} = $('#range_{$field.name}').data('ionRangeSlider');
+
+	$('#range_{$field.name}_from').on('change', function() {
+		var thisval = $(this).val();
+
+		ionSlider_{$field.name}.update({
+			from: thisval
+		});
+	});
+	$('#range_{$field.name}_to').on('change', function() {
+		var thisval = $(this).val();
+
+		ionSlider_{$field.name}.update({
+			to: thisval
+		});
+	});
+
+	// $('#range_{$field.name}_from').trigger('change');
+	// $('#range_{$field.name}_to').trigger('change');
+});
+							{/ia_add_js}
 						</div>
 					{case iaField::TEXT}
 					{case iaField::TEXTAREA break}

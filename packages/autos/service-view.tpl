@@ -3,7 +3,7 @@
 		<div class="col-md-5">
 			{if !empty($item.pictures)}
 				{ia_add_media files='fotorama'}
-				{$pics=$item.pictures}
+				{$pics=unserialize($item.pictures)}
 
 				<div class="v-item__gallery">
 					<div class="fotorama"
@@ -62,7 +62,7 @@
 						</tr>
 					{/if}
 					<tr>
-						<td>Автор</td>
+						<td>{lang key='author'}</td>
 						<td>
 							{if isset($author)}
 								<a href="{ia_url type='url' item='members' data=$author}">{$author.fullname|default:$author.username}</a> {if $author.phone}<br><span class="fa fa-phone"></span> {$author.phone}{/if}

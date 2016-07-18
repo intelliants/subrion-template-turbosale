@@ -15,7 +15,46 @@
 
 .ia-form-auto {
   .nav-tabs {
-    display: none;
+    margin-bottom: 30px;
+    background: #f0f0f0;
+    border: 0;
+    
+    > li {
+      margin-bottom: 0;
+
+      > a {
+        border-radius: 0;
+        border: 0;
+
+        &:hover {
+          border: 0;
+        }
+      }
+
+      &.active > a,
+      &.active > a:hover,
+      &.active > a:focus {
+        border: 0 none;
+        // border-bottom: 2px solid @link-color;
+        background: @link-color;
+        color: #fff;
+        position: relative;
+
+        &::after {
+          display: block;
+          content: '';
+          position: absolute;
+          left: 50%;
+          top: 100%;
+          margin-left: -5px;
+          width: 0;
+          height: 0;
+          border-style: solid;
+          border-width: 10px 5px 0 5px;
+          border-color: @link-color transparent transparent transparent;
+        }
+      }
+    }
   }
 
   .tab-content {
@@ -44,7 +83,7 @@
     .row();
 
     > .form-group {
-      .make-md-column(4);
+      .make-md-column(3);
     }
   }
 }
@@ -67,6 +106,10 @@
 
     > .form-group {
       .make-md-column(4);
+    }
+
+    + .form-group {
+      margin-top: 15px;
     }
 
     @media (max-width: @grid-float-breakpoint) {
@@ -147,7 +190,46 @@
 .ia-form-services,
 .ia-form-parts {
   .nav-tabs {
-    display: none;
+    margin-bottom: 30px;
+    background: #f0f0f0;
+    border: 0;
+    
+    > li {
+      margin-bottom: 0;
+
+      > a {
+        border-radius: 0;
+        border: 0;
+
+        &:hover {
+          border: 0;
+        }
+      }
+
+      &.active > a,
+      &.active > a:hover,
+      &.active > a:focus {
+        border: 0 none;
+        // border-bottom: 2px solid @link-color;
+        background: @link-color;
+        color: #fff;
+        position: relative;
+
+        &::after {
+          display: block;
+          content: '';
+          position: absolute;
+          left: 50%;
+          top: 100%;
+          margin-left: -5px;
+          width: 0;
+          height: 0;
+          border-style: solid;
+          border-width: 10px 5px 0 5px;
+          border-color: @link-color transparent transparent transparent;
+        }
+      }
+    }
   }
 
   .tab-content {
@@ -185,17 +267,30 @@
 }
 
 #fieldgroup_autos_services_general {
+  .fieldset__header {
+    display: none;
+  }
   .ia-form-services__wrp {
     .row();
 
-    .ia-form-services__wrp__inner {
+    > .form-group {
       .make-md-column(6);
     }
   }
 }
 
-#company_address_fieldzone {
-  margin-top: 15px;
+#fieldgroup_autos_services_info {
+  .fieldset__header {
+    display: none;
+  }
+
+  .ia-form-services__wrp2 {
+    .row();
+
+    > .ia-form-services__wrp2__inner {
+      .make-md-column(6);
+    }
+  }
 }
 
 
@@ -204,48 +299,48 @@
 // Parts
 // --------------------------------------------------
 
-#fieldgroup_autos_parts_general {
-  .fieldset__content {
-    .row();
+// #fieldgroup_autos_parts_general {
+//   .fieldset__content {
+//     .row();
 
-    #categories_fieldzone {
-      .make-md-column(4);
+//     #categories_fieldzone {
+//       .make-md-column(4);
       
-    }
-    .ia-form-services__wrp {
-      .make-md-column(8);
-    }
-  }
-}
+//     }
+//     .ia-form-services__wrp {
+//       .make-md-column(8);
+//     }
+//   }
+// }
 
-.ia-form-services__wrp2 {
-  .row();
-}
+// .ia-form-services__wrp2 {
+//   .row();
+// }
 
-#price_fieldzone {
-  .make-md-column(6);
-}
-#part_condition_fieldzone {
-  .make-md-column(6);
+// #price_fieldzone {
+//   .make-md-column(6);
+// }
+// #part_condition_fieldzone {
+//   .make-md-column(6);
 
-  .radios-list {
-    padding: 6px 0;
-  }
-  .radio {
-    margin: 0;
-    .radio-inline();
+//   .radios-list {
+//     padding: 6px 0;
+//   }
+//   .radio {
+//     margin: 0;
+//     .radio-inline();
 
-    &:first-child {
-      padding-left: 0;
-    }
-  }
+//     &:first-child {
+//       padding-left: 0;
+//     }
+//   }
 
-  .checkbox {
-    margin: 0;
-    .checkbox-inline();
+//   .checkbox {
+//     margin: 0;
+//     .checkbox-inline();
 
-    &:first-child {
-      padding-left: 0;
-    }
-  }
-}
+//     &:first-child {
+//       padding-left: 0;
+//     }
+//   }
+// }

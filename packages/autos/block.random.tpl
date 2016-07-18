@@ -1,34 +1,38 @@
-{*if isset($car_blocks_data.random)}
-	<h2 class="title title--accent">{$block.title|escape:'html'}</h2>
-	<div class="owl-carousel ia-carousel js-carousel-random">
-		{foreach $car_blocks_data.random as $item}
-			<div class="ia-carousel__item">
-				<div class="ia-card ia-card--small -{$item.status} {if 'hidden' == $item.status}-hidden{/if} {if $item.featured}-featured{/if} {if $item.sponsored}-sponsored{/if}">
-					{if $item.auto_pictures}
-						<a class="ia-card__image" href="{$item.link}">
-							{printImage imgfile=$item.auto_pictures[0]['path'] title=$item.model}
-							<span class="ia-card__support-info">
-								<span class="pull-left"><span class="fa fa-image"></span> {$item.auto_pictures_num}</span>
-								<span class="pull-right">{$item.date_added|date_format:$core.config.date_format}</span>
-							</span>
-						</a>
-					{/if}
+{if isset($car_blocks_data.random)}
+	<div class="random-cars">
+		<div class="container">
+			<h4 class="box__caption">{$block.title}</h4>
+			<div class="owl-carousel ia-carousel js-carousel-random">
+				{foreach $car_blocks_data.random as $item}
+					<div class="ia-carousel__item">
+						<div class="ia-card">
+							{if $item.auto_pictures}
+								<a class="ia-card__image" href="{$item.link}">
+									{if $item.auto_pictures[0]['path'] == 'a'}
+										<img src="{$img}no-car-preview.png" alt="">
+									{else}
+										{printImage imgfile=$item.auto_pictures[0]['path'] title=$item.model}
+										<span class="ia-card__sup-info"><span class="fa fa-camera"></span> {$item.auto_pictures_num}</span>
+									{/if}
+								</a>
+							{else}
+								<a class="ia-card__image" href="{$item.link}">
+									<img src="{$img}no-car-preview.png" alt="">
+								</a>
+							{/if}
 
-					<div class="ia-card__content">
-						<div class="ia-card__actions dropdown">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="fa fa-ellipsis-v"></span></a>
-							<ul class="dropdown-menu pull-right no-drop">
-								<li>{printFavorites item=$item itemtype='autos' guests=true}</li>
-								<li><a href="{$item.link}"><span class="fa fa-automobile"></span> {lang key='car_details'}</a></li>
-								<li>{accountActions item=$item itemtype='autos'}</li>
-							</ul>
+							<div class="ia-card__content">
+								<a class="ia-card__title" href="{$item.link}">{$item.model}</a>
+								<p class="ia-card__price">{$item.price_formatted}</p>
+								<p class="ia-card__info">
+									{$item.release_year}{if $item.mileage}, {$item.mileage} км{/if}{if $item.transmission}, {lang key="field_transmission_{$item.transmission}"}{/if}
+								</p>
+							</div>
 						</div>
-						<a class="ia-card__title" href="{$item.link}">{$item.model}, {$item.release_year}</a>
-						<p class="ia-card__sub-title">{$item.price}</p>
 					</div>
-				</div>
+				{/foreach}
 			</div>
-		{/foreach}
+		</div>
 	</div>
 
 	{ia_add_js}
@@ -50,10 +54,10 @@ $(function() {
 				items: 3
 			},
 			768: {
-				items: 4
+				items: 6
 			}
 		}
 	});
 });
 	{/ia_add_js}
-{/if*}
+{/if}

@@ -1,12 +1,11 @@
 {if iaCore::ACTION_EDIT == $pageAction}
 	<div class="tool-buttons text-right m-b">
-		<a class="btn btn-sm btn-info" href="{ia_url type='url' item='autos' action='view' data=$item}">Страница объявления <span class="icon-arrow-right2"></span></a>
+		<a class="btn btn-sm btn-info" href="{ia_url type='url' item='autos' action='view' data=$item}">{lang key='view'} <span class="icon-arrow-right2"></span></a>
 	</div>
 {/if}
 
 <div class="ia-form-info">
-	<p>Срок публикации объявления на сайте — 25 дней.</p>
-	<p>Поля, обязательные к заполнению, помечены <span class="text-danger">*</span> (звёздочкой)</p>
+	<p>{lang key='fields_notice'}</p>
 </div>
 
 <form method="post" action="{$smarty.const.IA_SELF}" enctype="multipart/form-data" class="ia-form ia-form-auto">
@@ -17,7 +16,7 @@
 	{capture append='field_before' name='release_year'}
 		<div class="ia-form-auto__wrp1">
 	{/capture}
-	{capture append='field_after' name='exchange'}
+	{capture append='field_after' name='mileage'}
 		</div>
 	{/capture}
 
@@ -28,10 +27,10 @@
 		</div>
 	{/capture}
 
-	{capture append='field_before' name='engine_size'}
+	{capture append='field_before' name='engine'}
 		<div class="ia-form-auto__wrp1">
 	{/capture}
-	{capture append='field_after' name='drive_type'}
+	{capture append='field_after' name='vin_code'}
 		</div>
 	{/capture}
 
@@ -59,89 +58,7 @@
 		</div>
 	{/capture}
 
-	{capture name='autos_general' append='fieldset_after'}
-		<div class="fieldset">
-			<div class="fieldset__header">{lang key='field_price'} <span class="required">*</span></div>
-			<div class="fieldset__content">
-				<div class="form-group">
-					<div class="row">
-						<div class="col-sm-6">
-							<div class="input-group">
-								<span class="input-group-addon">$</span>
-								<input class="form-control js-price-input" type="number" value="{if isset($item.price) && $item.price}{$item.price}{/if}" name="price">
-							</div>
-						</div>
-						<div class="col-sm-6">
-							<p class="form-control-static">~ <b class="js-price-usd">{if isset($item.price) && $item.price > 0}{round($item.price * $core.config.autos_currency_rate)}{else}0{/if} сом</b> по курсу {$core.config.autos_currency_rate}</p>
-						</div>
-					</div>
-					<p class="help-block">Указывайте цену в <b>долларах США</b>. Мы автоматически сконвертируем её в сомы для вас.</p>
-				</div>
-			</div>
-		</div>
-
-		{ia_add_js}
-$(function() {
-	var $priceInput = $('.js-price-input'),
-		$usdInput   = $('.js-price-usd'),
-		rate = {$core.config.autos_currency_rate};
-
-	$priceInput.keydown(function (e) {
-		// Allow: backspace, delete, tab, escape, enter and .
-		if ($.inArray(e.keyCode, [46, 8, 9, 27, 13, 110]) !== -1 ||
-			 // Allow: Ctrl+A
-			(e.keyCode == 65 && e.ctrlKey === true) ||
-			 // Allow: Ctrl+C
-			(e.keyCode == 67 && e.ctrlKey === true) ||
-			 // Allow: Ctrl+X
-			(e.keyCode == 88 && e.ctrlKey === true) ||
-			 // Allow: home, end, left, right
-			(e.keyCode >= 35 && e.keyCode <= 39)) {
-				 // let it happen, don't do anything
-				 return;
-		}
-		// Ensure that it is a number and stop the keypress
-		if ((e.shiftKey || (e.keyCode < 48 || e.keyCode > 57)) && (e.keyCode < 96 || e.keyCode > 105)) {
-			e.preventDefault();
-		}
-	});
-
-	$priceInput.on('keyup', function() {
-		var price = parseInt($priceInput.val() * rate);
-		$usdInput.text(price + ' сом');
-	});
-});
-		{/ia_add_js}
-	{/capture}
-
-	{*-- START MOD // dartelov --*} {* autoregister on listing submission *}
-	{if !iaUsers::hasIdentity()}
-		{capture name='common' append='tabs_after'}
-			<div class="fieldset " id="fieldgroup_owner">
-				<div class="fieldset__header">Информация о владельце</div>
-				<div class="fieldset__content">
-					<div class="ia-form-info">
-						<p>Вы не авторизованы на сайте. Мы рекомендуем создать профиль для того, чтобы видеть статистику просмотров ваших объявлений.</p>
-						<p>Объявления от авторизованных пользователей отображаются выше в списке, чем объявления от имени Гость.</p>
-					</div>
-					<div class="row">
-						{foreach ['name', 'email', 'phone'] as $field}
-							<div class="col-md-4 form-group fieldzone regular" id="{$field}_fieldzone">
-								<label for="field_owner_{$field}">
-									{lang key=$field} <span class="is-required">*</span>
-								</label>
-								{if isset($item.$field) && $item.$field}{$value = $item.$field}{else}{$value = ''}{/if}
-								<input class="form-control" type="text" name="owner_{$field}" value="{$value}" id="field_owner_{$field}" maxlength="40">
-							</div>
-						{/foreach}
-					</div>
-				</div>
-			</div>
-		{/capture}
-	{/if}
-	{*-- END MOD // dartelov --*} {* autoregister on listing submission *}
-
-	{include file='item-view-tabs.tpl' exceptions=array('price')}
+	{include file='item-view-tabs.tpl' exceptions=array()}
 
 	<div class="ia-form__after-tabs">
 		{include file='captcha.tpl'}

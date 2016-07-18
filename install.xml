@@ -24,10 +24,15 @@
 		<position>top</position>
 		<position>bottom</position>
 		<position>verybottom</position>
+		<position>footer1</position>
+		<position>footer2</position>
+		<position>footer3</position>
+		<position>enquire</position>
+		<position>calc</position>
 
 		<section name="content">
-			<position fixed="1">left</position>
 			<position width="9">center</position>
+			<position fixed="1">right</position>
 		</section>
 	</layout>
 
@@ -165,10 +170,16 @@
 		<block position="sponsored" status="active" pages="index" header="0">auto_sponsored</block>
 		<block position="tools" header="0" status="active" sticky="1" order="1">autos_tools</block>
 		<block position="verybottom" header="0" status="active" sticky="0" pages="autos_index,autos_index_latest,autos_index_featured,autos_index_popular,autos_index_random,search_autos,autos_models,autos_services,autos_service_view" order="99">auto_random</block>
+		<block position="calc" status="active">autos_calculator</block>
+		<block position="enquire" status="active">autos_enquiry_form</block>
 
 		<block position="landing" order="69" status="active" sticky="0" pages="index" header="0">autos_services_categories</block>
 		<block position="landing" order="99" status="active" sticky="0" pages="index" header="0">autos_parts_categories</block>
 		<block position="landing" order="199" status="active" sticky="0" pages="index" header="0">latest_news</block>
+
+		<block position="right" status="active">filters</block>
+		<block position="right" status="active">new_blog_posts</block>
+		<block position="right" status="active">blogs_archive</block>
 
 		<block status="inactive">blogroll</block>
 		<block status="inactive">auto_year_list</block>
@@ -228,12 +239,56 @@
 </div>
 			]]>
 		</block>
+		<block name="bottom_ad"
+			   title="Bottom ad"
+			   position="verybottom"
+			   header="0"
+			   collapsible="0"
+			   sticky="0"
+			   pages="index"
+			   status="active"
+			   type="smarty">
+			<![CDATA[
+<div class="bdn-static">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-9">
+				<h3><b>Sell or buy a car</b> easily on our portal!</h3>
+				<p><a href="{$smarty.const.IA_URL}add/">Add your car</a> for sale and be ready to receive many calls from potential buyers!</p>
+			</div>
+			<div class="col-md-3">
+				<a href="{$smarty.const.IA_URL}add/" class="btn btn-success btn-lg btn-block btn-has-icon">Sell your car <span class="fa fa-arrow-circle-o-right"></span></a>
+			</div>
+		</div>
+	</div>
+</div>
+			]]>
+		</block>
+		<block name="footer3"
+			   title="Contact us"
+			   position="footer3"
+			   header="1"
+			   collapsible="0"
+			   sticky="1"
+			   status="active"
+			   type="smarty">
+			<![CDATA[
+<div class="b-contacts">
+	<p><span class="fa fa-map-pin"></span> 2729 Nostrand Avenue, Brooklyn, NY 11210 USA</p>
+	<p><span class="fa fa-phone"></span> Phone: 1-800- 322-933994</p>
+	<p><span class="fa fa-skype"></span> Skype: <a href="skype:autosales">autosales</a></p>
+	<p><span class="fa fa-envelope"></span> Email: <a href="mailto:info@domain.com">info@domain.com</a></p>
+</div>
+			]]>
+		</block>
 	</blocks>
 
 	<phrases>
 		<phrase category="frontend" key="road_not_fount">Road not found</phrase>
 		<phrase category="frontend" key="login_sign_up">My Account</phrase>
 		<phrase category="frontend" key="sell_car">Sell a car</phrase>
+		<phrase category="frontend" key="register">Sign up</phrase>
+		<phrase category="frontend" key="register_tag">Register on our website and sell your car. Many features included in your private area.</phrase>
 
 		<phrase category="frontend" key="cars">Cars</phrase>
 		<phrase category="frontend" key="makes">Makes</phrase>
@@ -252,6 +307,8 @@
 		<phrase category="frontend" key="as_mileage_max">Milage to</phrase>
 		<phrase category="frontend" key="more_makes">More makes</phrase>
 		<phrase category="frontend" key="less_makes">Less makes</phrase>
+		<phrase category="frontend" key="recently_viewed">Recently viewed</phrase>
+		<phrase category="frontend" key="saved_cars">Saved cars</phrase>
 
 		<phrase category="frontend" key="all_services">All services</phrase>
 		<phrase category="frontend" key="add_service">Add service</phrase>
@@ -259,5 +316,31 @@
 		<phrase category="frontend" key="add_part">Add part</phrase>
 
 		<phrase category="frontend" key="total_cars_found">Total cars found</phrase>
+
+		<phrase category="frontend" key="add_service">Add service</phrase>
+		<phrase category="frontend" key="sell_parts">Sell parts</phrase>
+
+		<phrase category="frontend" key="fields_notice"><![CDATA[Fields marked with <span class="text-danger">*</span> (asterisk) are required.]]></phrase>
+
+		<phrase category="frontend" key="electronics">Electronics</phrase>
+		<phrase category="frontend" key="interior">Interior</phrase>
+		<phrase category="frontend" key="exterior">Exterior</phrase>
+		<phrase category="frontend" key="multimedia">Multimedia</phrase>
+
+		<phrase category="frontend" key="seller">Seller</phrase>
 	</phrases>
+
+	<hook name="phpCoreBeforePageDisplay" page_type="front">
+		<![CDATA[
+if (iaView::REQUEST_HTML == $iaView->getRequestType())
+{
+	require_once IA_INCLUDES . 'utils/Mobile_Detect.php';
+	$detect = new Mobile_Detect;
+
+	$iaView->assign('isMobile', ($detect->isMobile() && !$detect->isTablet()));
+
+	$iaView->assign('isTablet', $detect->isTablet());
+}
+		]]>
+	</hook>
 </template>

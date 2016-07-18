@@ -1,5 +1,5 @@
 <ul class="pagination pagination-sm">
-	<li class="pagination__count"><span>Страница {$_pagination.current_page} из {$_pagination.pages_count}</span></li>
+	<li class="pagination__count"><span>{$_pagination.current_page} / {$_pagination.pages_count}</span></li>
 	{if $_pagination.current_page > 1}
 		<li><a href="{$_pagination.first_page}" title="{lang key='first'}"><span class="fa fa-angle-double-left"></span></a></li>
 		<li><a href="{$_pagination.pages_range[$_pagination.current_page-1]}" title="{lang key='previous'}"><span class="fa fa-angle-left"></span></a></li>

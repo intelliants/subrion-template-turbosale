@@ -49,6 +49,12 @@
 
 			<table class="v-item-head__table">
 				<tbody>
+					{if $item.vin_code}
+						<tr>
+							<td>{lang key='field_vin_code'}</td>
+							<td><b>{$item.vin_code}</b></td>
+						</tr>
+					{/if}
 					<tr>
 						<td>{lang key='field_body_type'}</td>
 						<td><b>{lang key="field_body_type_{$item.body_type}"}</b></td>
@@ -56,13 +62,23 @@
 					{if $item.mileage}
 						<tr>
 							<td>{lang key='field_mileage'}</td>
-							<td><b>{$item.mileage} км</b></td>
+							<td><b>{$item.mileage}</b></td>
 						</tr>
 					{/if}
-					{if $item.engine_size}
+					<tr>
+						<td>{lang key='field_condition'}</td>
+						<td>{lang key="field_condition_{$item.condition}"}</td>
+					</tr>
+					{if $item.engine}
 						<tr>
-							<td>{lang key='field_engine_size'}</td>
-							<td>{$item.engine_size}</td>
+							<td>{lang key='field_engine'}</td>
+							<td>{lang key="field_engine_{$item.engine}"}, {lang key="field_engine_type_{$item.engine_type}"}{if $item.engine_size}, {$item.engine_size}{/if}</td>
+						</tr>
+					{/if}
+					{if $item.horse_power}
+						<tr>
+							<td>{lang key='horse_power'}</td>
+							<td>{$item.horse_power}</td>
 						</tr>
 					{/if}
 					{if $item.transmission}
@@ -88,22 +104,42 @@
 							</td>
 						</tr>
 					{/if}
-					{if $item.steering_wheel}
+					{if $item.door_count}
 						<tr>
-							<td>{lang key='field_steering_wheel'}</td>
-							<td>{lang key="field_steering_wheel_{$item.steering_wheel}"}</td>
+							<td>{lang key='field_door_count'}</td>
+							<td>{lang key="field_door_count_{$item.door_count}"}</td>
 						</tr>
 					{/if}
 					{if $item.exterior_color}
 						<tr>
 							<td>{lang key='field_exterior_color'}</td>
-							<td>{lang key="field_exterior_color_{$item.exterior_color}"}</td>
+							<td>
+								<span class="color-badge" style="background: {$item.exterior_color}"></span>
+								{lang key="field_exterior_color_{$item.exterior_color}"}
+							</td>
 						</tr>
 					{/if}
-					<tr>
-						<td>{lang key='field_condition'}</td>
-						<td>{lang key="field_condition_{$item.condition}"}</td>
-					</tr>
+					{if $item.metallic}
+						<tr>
+							<td>{lang key='field_metallic'}</td>
+							<td>{lang key="field_metallic_{$item.metallic}"}</td>
+						</tr>
+					{/if}
+					{if $item.interior_color}
+						<tr>
+							<td>{lang key='field_interior_color'}</td>
+							<td>
+								<span class="color-badge" style="background: {$item.interior_color}"></span>
+								{lang key="field_interior_color_{$item.interior_color}"}
+							</td>
+						</tr>
+					{/if}
+					{if $item.interior_leather}
+						<tr>
+							<td>{lang key='field_interior_leather'}</td>
+							<td>{lang key="field_interior_leather_{$item.interior_leather}"}</td>
+						</tr>
+					{/if}
 				</tbody>
 			</table>
 
@@ -119,18 +155,12 @@
 	<div class="row">
 		<div class="col-md-4">
 			<div class="box box--border box-author">
-				<h4 class="box__caption">{lang key='owner'}</h4>
+				<h4 class="box__caption">{lang key='seller'}</h4>
 				<div class="box__content">
 					{if isset($author)}
 						<div class="box-author__name">
 							<a href="{ia_url type='url' item='members' data=$author}">
 								{printImage imgfile=$author.avatar width=30 title=$author.fullname|default:$author.username gravatar=true email=$author.email}{$author.fullname|default:$author.username}
-
-								{if 12 == $author.usergroup_id}
-									<span>Автосалон</span>
-								{else}
-									<span>Частный продавец</span>
-								{/if}
 							</a>
 						</div>
 						{if $author.phone}
@@ -147,7 +177,7 @@
 							</div>
 						{/if}
 						<div class="box-author__cars">
-							Машин в гараже: <b>{$author.autos_num|string_format:'%d'}</b>
+							{lang key='cars'}: <b>{$author.autos_num|string_format:'%d'}</b>
 						</div>
 					{else}
 						<div class="box-author__name">
@@ -164,13 +194,7 @@
 				</div>
 			</div>
 
-			{*<div class="v-item-info__section v-item-info__section--imp m-t-md">
-				<h4><span>Подробнее о {$item.model}</span></h4>
-				<div class="link-icons">
-					<a href="{$smarty.const.IA_URL}catalog/{$item.url}"><span class="fa fa-wrench"></span> Характеристики</a>
-					<a href="{$smarty.const.IA_URL}{$item.url}"><span class="fa fa-car"></span> Все объявления</a>
-				</div>
-			</div>*}
+			{ia_blocks block='enquire'}
 		</div>
 		<div class="col-md-8">
 			{if $item.additional_info}
@@ -204,6 +228,8 @@
 					</div>
 				</div>
 			{/if}
+
+			{ia_blocks block='calc'}
 		</div>
 	</div>
 </div>
