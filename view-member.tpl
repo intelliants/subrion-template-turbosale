@@ -26,7 +26,7 @@
 						<td>{$item.date_reg|date_format:$core.config.date_format}</td>
 					</tr>
 					<tr>
-						<td>Просмотров</td>
+						<td>{lang key='views'}</td>
 						<td><span class="fa fa-eye"></span> {$item.views_num}</td>
 					</tr>
 				</tbody>
