@@ -1,6 +1,6 @@
 {if isset($categories) && $categories}
 	{$num_columns = ((isset($num_columns)) ? $num_columns : 2)}
-	{$class_names = ['col-md-12', 'col-md-6', 'col-md-4', 'col-md-3', 'col-md-2', 'col-md-2']}
+	{$class_names = ['col-md-12', 'col-md-6', 'col-md-4', 'col-md-3', 'col-md-2', 'col-md-2 col-xs-6']}
 
 	<div class="row ia-cats">
 		{foreach $categories as $category}

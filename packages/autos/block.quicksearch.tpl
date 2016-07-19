@@ -1,6 +1,6 @@
 <div class="search">
 	<div class="container">
-		<button class="q-search-toggle collapsed" type="button" data-toggle="collapse" data-target="#search-collapse"><span class="fa fa-search"></span> Поиск</button>
+		<button class="q-search-toggle collapsed" type="button" data-toggle="collapse" data-target="#search-collapse"><span class="fa fa-search"></span> {lang key='search'}</button>
 		<div class="q-search collapse" id="search-collapse">
 			<div class="q-search__tabs">
 				<ul class="nav nav-tabs">

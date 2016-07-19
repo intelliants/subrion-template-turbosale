@@ -3,7 +3,7 @@
 		<div class="row">
 			{foreach $car_blocks_data.make as $make}
 				{if $make.priority}
-					<div class="col-md-2 col-sm-3">
+					<div class="col-sm-2 col-xs-6">
 						<a href="{ia_url type='url' item='autos_models' data=$make}" class="pr-list__item">
 							<img src="{$core.page.nonProtocolUrl}uploads/{$make.icon.path}" alt="{$make.title|escape:'html'}">
 							<span class="pr-list__item__title">{$make.title|escape:'html'}</span>
