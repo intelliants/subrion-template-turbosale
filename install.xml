@@ -167,7 +167,7 @@
 		<block position="popular_makes" status="active" sticky="1" header="0" collapsible="0">auto_make_list</block>
 		<block position="bodystyle" status="active" sticky="1" header="0" collapsible="0">auto_body_list</block>
 		<block position="recent" status="active" sticky="0" pages="index" title="Recently added cars for sale" header="0" collapsible="0">auto_recent</block>
-		<block position="sponsored" status="active" pages="index" header="0">auto_sponsored</block>
+		<block position="sponsored" status="active" pages="index" header="0" classname="hidden-sm hidden-xs">auto_sponsored</block>
 		<block position="tools" header="0" status="active" sticky="1" order="1">autos_tools</block>
 		<block position="verybottom" header="0" status="active" sticky="0" pages="autos_index,autos_index_latest,autos_index_featured,autos_index_popular,autos_index_random,search_autos,autos_models,autos_services,autos_service_view" order="99">auto_random</block>
 		<block position="calc" status="active">autos_calculator</block>
