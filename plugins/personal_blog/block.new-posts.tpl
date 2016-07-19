@@ -18,7 +18,7 @@
 	</div>
 
 	<p class="latest-news-more">
-		<a href="{$smarty.const.IA_URL}blog/">Все новости &rarr;</a>
+		<a href="{$smarty.const.IA_URL}blog/">{lang key='view_all'} &rarr;</a>
 	</p>
 {else}
 	<div class="alert alert-info">{lang key='no_blog_entries'}</div>

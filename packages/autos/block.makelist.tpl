@@ -15,7 +15,7 @@
 		</div>
 	</div>
 	<div class="ia-categories pr-list-simple">
-		{include file='ia-categories.tpl' categories=$car_blocks_data.make item='autos_models' show_amount=true num_columns=4 icons=false}
+		{include file='ia-categories.tpl' categories=$car_blocks_data.make item='autos_models' show_amount=true num_columns=6 icons=false}
 
 		<div class="pr-list-simple__more"><a class="js-more-makes" href="#" data-less-makes-text="<span class='fa fa-angle-up'></span> {lang key='less_makes'}" data-more-makes-text="<span class='fa fa-angle-down'></span> {lang key='more_makes'}"><span class="fa fa-angle-down"></span> {lang key='more_makes'}</a></div>
 	</div>

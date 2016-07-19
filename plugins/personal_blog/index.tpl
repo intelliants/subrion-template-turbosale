@@ -9,12 +9,12 @@
 
 		<hr>
 
-		<p class="news-entry__date">Опубликовано {$blog_entry.date_added|date_format:$core.config.date_format}</p>
+		<p class="news-entry__date">{$blog_entry.date_added|date_format:$core.config.date_format}</p>
 
 		{if $tags}
 			<div class="news-entry__tags">
 				<span class="fa fa-tags"></span>
-				Теги:
+				{lang key='tags'}:
 				{foreach $tags as $tag}
 					<a href="{$smarty.const.IA_URL}tag/{$tag.alias}">{$tag.title|escape:'html'}</a>{if !$tag@last}, {/if}
 				{/foreach}

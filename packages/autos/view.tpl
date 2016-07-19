@@ -191,6 +191,25 @@
 							</div>
 						{/if}
 					{/if}
+
+					{if $author.facebook || $author.twitter || $author.gplus || $author.linkedin}
+						<p class="text-center">
+							{if isset($author.facebook) && $author.facebook}
+								<a href="{$author.facebook}" class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-facebook fa-stack-1x fa-inverse"></i></a>
+							{/if}
+							{if isset($author.twitter) && $author.twitter}
+								<a href="{$author.twitter}" class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-twitter fa-stack-1x fa-inverse"></i></a>
+							{/if}
+							{if isset($author.gplus) && $author.gplus}
+								<a href="{$author.gplus}" class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-google-plus fa-stack-1x fa-inverse"></i></a>
+							{/if}
+							{if isset($author.linkedin) && $author.linkedin}
+								<a href="{$author.linkedin}" class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-linkedin fa-stack-1x fa-inverse"></i></a>
+							{/if}
+						</p>
+					{/if}
+
+					{ia_hooker name='smartyViewListingAuthorBlock'}
 				</div>
 			</div>
 

@@ -182,6 +182,7 @@
 		<block position="right" status="active">blogs_archive</block>
 
 		<block status="inactive">blogroll</block>
+		<block status="inactive">autos_author</block>
 		<block status="inactive">auto_year_list</block>
 	</changeset>
 
