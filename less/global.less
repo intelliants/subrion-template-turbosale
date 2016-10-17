@@ -262,7 +262,7 @@ body {
     font-size: 24px;
     margin: 0;
     line-height: 30px;
-    width: 70%;
+    // width: 70%;
 
     img {
       display: inline-block;
@@ -272,10 +272,20 @@ body {
     }
   }
 
+  .action-buttons {
+    float: right;
+    margin: 4px 0 4px 30px;
+  }
+
   @media (max-width: @grid-float-breakpoint) {
     h1 {
       float: none;
       width: auto;
+    }
+
+    .action-buttons {
+      float: none;
+      margin: 10px 0;
     }
   }
 }
