@@ -188,7 +188,7 @@
 					{/if}
 
 					{if $author.facebook || $author.twitter || $author.gplus || $author.linkedin}
-						<p class="text-center">
+						<p class="text-center hidden-print">
 							{if !empty($author.facebook)}
 								<a href="{$author.facebook}" class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-facebook fa-stack-1x fa-inverse"></i></a>
 							{/if}

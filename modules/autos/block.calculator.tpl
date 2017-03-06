@@ -45,4 +45,4 @@
 
 <a href="#" class="btn btn-primary js-calculate-load">{lang key='calc_calculate'}</a>
 
-{ia_add_media files='js:_IA_URL_packages/autos/js/front/calculator'}
+{ia_add_media files='js:_IA_URL_modules/autos/js/front/calculator'}
