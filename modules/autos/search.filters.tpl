@@ -14,7 +14,7 @@
 			<option value="">{lang key='model'}</option>
 		</select>
 	</div>
-	{ia_print_js files='_IA_URL_packages/autos/js/front/search'}
+	{ia_print_js files='_IA_URL_modules/autos/js/front/search'}
 	{ia_add_js}
 $(function()
 {
@@ -23,19 +23,13 @@ $(function()
 
 	if ($model.data('id')) $('.js-car-make', $form).trigger('change');
 
-	$model.on('change', function()
+	if (!!parseInt(intelli.config.search_instant))
 	{
-		intelli.search.run();
-	});
-
-	intelli.search.bindEvents(
-		function(){
-
-		},
-		function(argument) {
-			$(".ia-card-hr__image").brazzersCarousel();
-		}
-	);
+		$model.on('change', function()
+		{
+			intelli.search.run();
+		});
+	}
 });
 	{/ia_add_js}
 {/if}

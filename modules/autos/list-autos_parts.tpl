@@ -1,8 +1,7 @@
 <div class="ia-card">
 	{if $listing.pictures}
-		{$pics = unserialize($listing.pictures)}
 		<a class="ia-card__image" href="{ia_url item='autos_parts' data=$listing type='url'}">
-			{printImage imgfile=$pics[0]['path'] title=$listing.title}
+			{ia_image file=$listing.pictures[0] title=$listing.title type='thumbnail'}
 		</a>
 	{else}
 		<a class="ia-card__image" href="{ia_url item='autos_parts' data=$listing type='url'}">

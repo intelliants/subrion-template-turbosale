@@ -2,7 +2,7 @@
 	<div class="news-entry">
 
 		{if $blog_entry.image}
-			<div class="news-entry__image">{printImage imgfile=$blog_entry.image fullimage=true title=$blog_entry.title|escape:'html' class='img-responsive'}</div>
+			<div class="news-entry__image">{ia_image file=$blog_entry.image title=$blog_entry.title|escape:'html' class='img-responsive' type='large'}</div>
 		{/if}
 
 		<div class="news-entry__body">{$blog_entry.body}</div>
@@ -11,11 +11,11 @@
 
 		<p class="news-entry__date">{$blog_entry.date_added|date_format:$core.config.date_format}</p>
 
-		{if $tags}
+		{if $blog_tags}
 			<div class="news-entry__tags">
 				<span class="fa fa-tags"></span>
 				{lang key='tags'}:
-				{foreach $tags as $tag}
+				{foreach $blog_tags as $tag}
 					<a href="{$smarty.const.IA_URL}tag/{$tag.alias}">{$tag.title|escape:'html'}</a>{if !$tag@last}, {/if}
 				{/foreach}
 			</div>
@@ -30,7 +30,7 @@
 			{foreach $blog_entries as $blog_entry}
 				<div class="news-item">
 					{if $blog_entry.image}
-						<a href="{$smarty.const.IA_URL}blog/{$blog_entry.id}-{$blog_entry.alias}" class="news-item__image">{printImage imgfile=$blog_entry.image title=$blog_entry.title}</a>
+						<a href="{$smarty.const.IA_URL}blog/{$blog_entry.id}-{$blog_entry.alias}" class="news-item__image">{ia_image file=$blog_entry.image title=$blog_entry.title type='thumbnail'}</a>
 					{/if}
 					<div class="news-item__body">
 						<h4 class="news-item__heading">
@@ -38,9 +38,9 @@
 						</h4>
 						<div class="news-item__body-info">
 							<p class="news-item__date">{$blog_entry.date_added|date_format:$core.config.date_format}</p>
-							{if $tags}
+							{if $blog_tags}
 								{$tagsExist=0}
-								{foreach $tags as $tag}
+								{foreach $blog_tags as $tag}
 									{if $blog_entry.id == $tag.blog_id}
 										{$tagsExist = $tagsExist + 1}
 									{/if}
@@ -48,7 +48,7 @@
 								{if $tagsExist != 0}
 									<p class="news-item__tags">
 										<span class="fa fa-tags"></span>
-										{foreach $tags as $tag}
+										{foreach $blog_tags as $tag}
 											{if $blog_entry.id == $tag.blog_id}
 												<a href="{$smarty.const.IA_URL}tag/{$tag.alias}">{$tag.title|escape: 'html'}</a>, 
 											{/if}

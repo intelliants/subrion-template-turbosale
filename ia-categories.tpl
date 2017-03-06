@@ -1,4 +1,4 @@
-{if isset($categories) && $categories}
+{if !empty($categories)}
 	{$num_columns = ((isset($num_columns)) ? $num_columns : 2)}
 	{$class_names = ['col-md-12', 'col-md-6', 'col-md-4', 'col-md-3', 'col-md-2', 'col-md-2 col-xs-6']}
 
@@ -6,20 +6,16 @@
 		{foreach $categories as $category}
 			<div class="{$class_names[$num_columns - 1]}">
 				<div class="ia-cat">
-					{if isset($icons) && $icons}
-						{if isset($category.icon) && $category.icon}
-							<img src="{$core.page.nonProtocolUrl}uploads/{$category.icon.path}" alt="{$category.title}">
-						{else}
-							<span class="fa fa-folder-open"></span>
-						{/if}
+					{if !empty($icons)}
+						<span class="fa{if !empty($category.icon)} {$category.icon}{else} fa-folder-open{/if}"></span>
 					{/if}
 
-					{if isset($category.crossed) && $category.crossed}@&nbsp;{/if}<a href="{ia_url type='url' item=$item data=$category}">{$category.title|escape:'html'}</a>
-					{if isset($show_amount) && $show_amount}
+					<a href="{$category.url}">{$category.title|escape:'html'}</a>
+					{if !empty($show_amount)}
 						&mdash; {$category.num|default:0}
 					{/if}
 
-					{if isset($category.subcategories) && $category.subcategories}
+					{if !empty($category.subcategories)}
 						<div class="ia-cat__sub">
 							{foreach $category.subcategories as $subcategory}
 								<a href="{ia_url type='url' item=$item data=$subcategory}">{$subcategory.title}</a>{if !$subcategory@last}, {/if}

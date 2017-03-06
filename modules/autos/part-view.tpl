@@ -3,7 +3,6 @@
 		<div class="col-md-5">
 			{if !empty($item.pictures)}
 				{ia_add_media files='fotorama'}
-				{$pics=unserialize($item.pictures)}
 
 				<div class="v-item__gallery">
 					<div class="fotorama"
@@ -11,14 +10,14 @@
 						 data-width="100%"
 						 data-ratio="800/600"
 						 data-allowfullscreen="true"
-						 data-fit="contain">
-						{foreach $pics as $entry}
-							<a class="v-item__gallery__item" href="{printImage imgfile=$entry.path url=true fullimage=true}">{printImage imgfile=$entry.path}</a>
+						 data-fit="{$core.config.template_fotorama_part}">
+						{foreach $item.pictures as $entry}
+							<a class="v-item__gallery__item" href="{ia_url file=$entry url=true type='original'}">{ia_image file=$entry type='original'}</a>
 						{/foreach}
 					</div>
 				</div>
 			{else}
-				<img src="{$img}no-preview-on-view-page.png" class="img-responsive" alt="">
+				<img src="{$img}no-preview.png" class="img-responsive" alt="">
 			{/if}
 		</div>
 		<div class="col-md-7">
@@ -43,7 +42,7 @@
 			<table class="v-item-head__table">
 				<tbody>
 					<tr>
-						<td>{lang key='field_categories'}</td>
+						<td>{lang key='field_autos_parts_categories'}</td>
 						<td>
 							{$cats = explode(',', $item.categories)}
 							{foreach $cats as $cat}
@@ -65,7 +64,7 @@
 					</tr>
 					{if $item.part_number}
 						<tr>
-							<td>{lang key='field_part_number'}</td>
+							<td>{lang key='field_autos_parts_part_number'}</td>
 							<td><b>{$item.part_number}</b></td>
 						</tr>
 					{/if}

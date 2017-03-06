@@ -2,7 +2,7 @@
 	<div class="sec-header">
 		<h4 class="box__caption"><span class="icon-fire2"></span> {$block.title}</h4>
 		<div class="sec-header__actions">
-			<!-- <a href="{$smarty.const.IA_URL}about/" class="link">Как сюда попасть?</a> -->
+			<!-- actions can be here. use <a> tag -->
 		</div>
 	</div>
 	<div class="row">
@@ -10,11 +10,11 @@
 			<div class="col-md-2">
 				<div class="ia-card ia-card--with-f-content">
 
-					{if $item.auto_pictures}
+					{if !empty($item.pictures)}
 						<a class="ia-card__image" href="{$item.link}">
-							{printImage imgfile=$item.auto_pictures[0]['path'] title=$item.model}
+							{ia_image file=$item.pictures[0] title=$item.model type='thumbnail'}
 
-							<span class="ia-card__sup-info"><span class="fa fa-camera"></span> {$item.auto_pictures_num}</span>
+							<span class="ia-card__sup-info"><span class="fa fa-camera"></span> {$item.pictures_num}</span>
 						</a>
 					{else}
 						<a class="ia-card__image" href="{$item.link}">
@@ -26,7 +26,7 @@
 						<a class="ia-card__title" href="{$item.link}">{$item.model}</a>
 						<p class="ia-card__price">{$item.price_formatted}</p>
 						<p class="ia-card__info visible-sm visible-xs">
-							{$item.release_year}{if $item.mileage}, {$item.mileage} км{/if}{if $item.transmission}, {lang key="field_transmission_{$item.transmission}"}{/if}
+							{$item.release_year}{if $item.mileage}, {$item.mileage} km{/if}{if $item.transmission}, {lang key="field_autos_transmission+{$item.transmission}"}{/if}
 						</p>
 					</div>
 				</div>

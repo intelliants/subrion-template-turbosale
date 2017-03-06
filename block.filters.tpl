@@ -21,7 +21,7 @@
 				{$selected = null}
 			{/if}
 			<div class="form-group">
-				<label>{lang key="field_{$field.name}"}</label>
+				<label>{lang key="field_{$field.item}_{$field.name}"}</label>
 				{switch $field.type}
 					{case iaField::CHECKBOX break}
 					<div class="radios-list">
@@ -36,12 +36,20 @@
 						</select>
 
 					{case iaField::RADIO break}
-						<div class="radios-list">
-							{if !empty($field.values)}
-							{html_radios assign='radios' name=$field.name id=$field.name options=$field.values separator='</div>'}
-							<div class="radio">{'<div class="radio">'|implode:$radios}
+						{if iaField::COMBO == $field.show_as}
+							<select class="form-control js-interactive" name="{$field.name}[]" multiple>
+								{if !empty($field.values)}
+									{html_options options=$field.values selected=$selected}
+								{/if}
+							</select>
+						{else}
+							<div class="radios-list">
+								{if !empty($field.values)}
+									{html_radios assign='radios' name=$field.name id=$field.name options=$field.values separator='</div>'}
+									<div class="radio">{'<div class="radio">'|implode:$radios}
 								{/if}
 							</div>
+						{/if}
 					{case iaField::STORAGE}
 					{case iaField::IMAGE}
 					{case iaField::PICTURES break}
@@ -49,20 +57,7 @@
 
 					{case iaField::NUMBER break}
 						<div class="range-slider">
-							<input class="hidden no-js js-range-slider" id="range_{$field.name}" type="text" name=""
-								data-type="double" 
-								data-force-edges="true" 
-								data-min="{$field.range[0]}" 
-								data-max="{$field.range[1]}" 
-								data-from="{$field.range[0]}" 
-								data-to="{$field.range[1]}"
-								{if 'release_year' == $field.name}
-									data-step="1"
-									data-prettify-enabled="false"
-								{else}
-									data-step="1000"
-								{/if}
-							>
+							<input class="hidden no-js js-range-slider" id="range_{$field.name}" type="text" name="">
 
 							<input id="range_{$field.name}_from" type="hidden" name="{$field.name}[f]" maxlength="{$field.length}" {if $selected} value="{$selected.f|escape:'html'}"{/if}>
 							<input id="range_{$field.name}_to" type="hidden" name="{$field.name}[t]" maxlength="{$field.length}" {if $selected} value="{$selected.t|escape:'html'}"{/if}>
@@ -76,8 +71,8 @@ $(function()
 		force_edges: true,
 		min: "{$field.range[0]}",
 		max: "{$field.range[1]}",
-		from: "{$field.range[0]}",
-		to: "{$field.range[1]}",
+		from: $("#range_{$field.name}_from").val(),
+		to: $('#range_{$field.name}_to').val(),
 		{if 'release_year' == $field.name}
 			prettify_enabled: false,
 			step: 1,

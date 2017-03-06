@@ -13,7 +13,7 @@
 		<span class="sorting__links">
 			<a class="{if 'date_added' == $sorting.field}active{/if}" href="{$smarty.const.IA_SELF}?sort=date" rel="nofollow">{lang key='date'}</a>
 			<a class="{if 'price' == $sorting.field}active{/if}" href="{$smarty.const.IA_SELF}?sort=price" rel="nofollow">{lang key='price'}</a>
-			<a class="{if 'release_year' == $sorting.field}active{/if}" href="{$smarty.const.IA_SELF}?sort=year" rel="nofollow">{lang key='field_release_year'}</a>
+			<a class="{if 'release_year' == $sorting.field}active{/if}" href="{$smarty.const.IA_SELF}?sort=year" rel="nofollow">{lang key='field_autos_release_year'}</a>
 		</span>
 
 		<span class="sorting__links">

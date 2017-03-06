@@ -6,7 +6,7 @@
 	<div class="form-group">
 		<label class="col-md-4 control-label" for="">{lang key='calc_vehicle_price'}</label>
 		<div class="col-md-8">
-			<input type="text" class="form-control numbersOnly vehicle_price" value="{if isset($item.price) && $item.price}{$item.price}{/if}" id="vehicle_price">
+			<input type="text" class="form-control numbersOnly vehicle_price" value="{if !empty($item.price)}{$item.price}{/if}" id="vehicle_price">
 		</div>
 	</div>
 	<div class="form-group">

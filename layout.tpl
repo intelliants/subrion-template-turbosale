@@ -120,7 +120,7 @@ intelli.pageName = '{$core.page.name}';
 						<h1>
 							{if 'view_member' == $core.page.name}
 								{$imgUrl = unserialize($item.avatar)}
-								<a href="{$smarty.const.IA_URL}uploads/{$imgUrl['path']}" rel="ia_lightbox">{printImage imgfile=$item.avatar width=28 title=$item.fullname|default:$item.username gravatar=true email=$item.email gravatar_width=28}</a>
+								<a href="{$smarty.const.IA_URL}uploads/{$imgUrl['path']}" rel="ia_lightbox">{ia_image file=$item.avatar width=28 title=$item.fullname|default:$item.username gravatar=true email=$item.email gravatar_width=28}</a>
 							{/if}
 
 							{$core.page.title}

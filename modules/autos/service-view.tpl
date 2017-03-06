@@ -3,7 +3,6 @@
 		<div class="col-md-5">
 			{if !empty($item.pictures)}
 				{ia_add_media files='fotorama'}
-				{$pics=unserialize($item.pictures)}
 
 				<div class="v-item__gallery">
 					<div class="fotorama"
@@ -11,14 +10,14 @@
 						 data-width="100%"
 						 data-ratio="800/600"
 						 data-allowfullscreen="true"
-						 data-fit="contain">
-						{foreach $pics as $entry}
-							<a class="v-item__gallery__item" href="{printImage imgfile=$entry.path url=true fullimage=true}">{printImage imgfile=$entry.path title=$entry.title}</a>
+						 data-fit="{$core.config.template_fotorama_service}">
+						{foreach $item.pictures as $entry}
+							<a class="v-item__gallery__item" href="{ia_image file=$entry url=true type='original'}">{ia_image file=$entry title=$item.title type='original'}</a>
 						{/foreach}
 					</div>
 				</div>
 			{else}
-				<img src="{$img}no-preview-on-view-page.png" class="img-responsive" alt="">
+				<img src="{$img}no-preview.png" class="img-responsive" alt="">
 			{/if}
 		</div>
 		<div class="col-md-7">
@@ -42,7 +41,7 @@
 			<table class="v-item-head__table">
 				<tbody>
 					<tr>
-						<td>{lang key='field_categories'}</td>
+						<td>{lang key='field_autos_services_categories'}</td>
 						<td>
 							{$services = explode(',', $item.categories)}
 
@@ -52,12 +51,12 @@
 						</td>
 					</tr>
 					<tr>
-						<td>{lang key='field_company_phone'}</td>
+						<td>{lang key='field_autos_services_company_phone'}</td>
 						<td><b>{$item.company_phone}</b></td>
 					</tr>
 					{if $item.company_address}
 						<tr>
-							<td>{lang key='field_company_address'}</td>
+							<td>{lang key='field_autos_services_company_address'}</td>
 							<td>{$item.company_address}</td>
 						</tr>
 					{/if}
@@ -88,7 +87,7 @@
 	</div>
 </div>
 
-{if isset($item.company_lat) && $item.company_lat}
+{if !empty($item.company_lat)}
 	<div id="dg-map" class="m-t" style="height: 240px;width: 100%;"></div>
 
 	<script src="http://maps.api.2gis.ru/2.0/loader.js?pkg=full"></script>

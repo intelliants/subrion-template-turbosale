@@ -2,7 +2,7 @@
 	{foreach $blog_entries as $blog_entry}
 		<div class="news-item">
 			{if $blog_entry.image}
-				<a href="{$smarty.const.IA_URL}blog/{$blog_entry.id}-{$blog_entry.alias}" class="news-item__image">{printImage imgfile=$blog_entry.image title=$blog_entry.title}</a>
+				<a href="{$smarty.const.IA_URL}blog/{$blog_entry.id}-{$blog_entry.alias}" class="news-item__image">{ia_image file=$blog_entry.image title=$blog_entry.title type='thumbnail'}</a>
 			{/if}
 			<div class="news-item__body">
 				<h4 class="news-item__heading">
@@ -19,8 +19,8 @@
 
 	{navigation aTotal=$pagination.total aTemplate=$pagination.template aItemsPerPage=$core.config.blog_number aNumPageItems=5}
 {else}
-	{if $tags}
-		{foreach $tags as $tag}
+	{if $blog_tags}
+		{foreach $blog_tags as $tag}
 			{if $tag != ''}
 				<div class="media ia-item">
 					<div class="media-body">
@@ -32,7 +32,7 @@
 			{/if}
 		{/foreach}
 
-		{navigation aTotal=$pagination.total aTemplate=$pagination.template aItemsPerPage=$core.config.tag_number aNumPageItems=5}
+		{navigation aTotal=$pagination.total aTemplate=$pagination.template aItemsPerPage=$core.config.blog_tag_number aNumPageItems=5}
 	{else}
 		<div class="alert alert-info">{lang key='no_tags'}</div>
 	{/if}

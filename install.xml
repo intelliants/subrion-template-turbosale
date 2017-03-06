@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<template name="turbosale">
+<module type="template" name="turbosale">
 	<title>Turbosale</title>
 	<summary>Template for Subrion Autos Script</summary>
 	<author>Gleb Surinov</author>
 	<contributor>Intelliants LLC</contributor>
-	<version>1.0.1</version>
-	<date>2016-08-03</date>
-	<compatibility>4.0</compatibility>
+	<version>1.1.0</version>
+	<date>2017-03-06</date>
+	<compatibility>4.1</compatibility>
 
 	<dependency type="package" exist="1">autos</dependency>
 
@@ -63,26 +63,6 @@
 		    description="Fixed navbar">1</config>
 
 	<config group="template_turbosale"
-		    name="template_color_scheme"
-		    type="select"
-		    multiplevalues="default,dark"
-		    description="Template color"
-		    order="3004">default</config>
-
-	<config group="template_turbosale"
-		    name="template_layout"
-		    type="hidden"
-		    multiplevalues="wide,boxed"
-		    description="Template layout"
-		    order="3005">wide</config>
-
-	<config group="template_turbosale"
-		    name="website_bg"
-		    type="image"
-		    description="Header background"
-		    order="3006"><![CDATA[]]></config>
-
-	<config group="template_turbosale"
 		    name="tools_as_floating_box"
 		    type="radio"
 		    order="3007"
@@ -92,21 +72,21 @@
 	<config group="template_turbosale"
 		    name="template_fotorama_car"
 		    type="select"
-		    multiplevalues="contain,cover,scaledown,none"
+		    values="contain,cover,scaledown,none"
 		    description="Fotorama fit method for cars"
 		    order="3008">cover</config>
 
 	<config group="template_turbosale"
 		    name="template_fotorama_service"
 		    type="select"
-		    multiplevalues="contain,cover,scaledown,none"
+		    values="contain,cover,scaledown,none"
 		    description="Fotorama fit method for services"
 		    order="3009">cover</config>
 
 	<config group="template_turbosale"
 		    name="template_fotorama_part"
 		    type="select"
-		    multiplevalues="contain,cover,scaledown,none"
+		    values="contain,cover,scaledown,none"
 		    description="Fotorama fit method for parts"
 		    order="3010">contain</config>
 
@@ -168,6 +148,7 @@
 		<block position="bodystyle" status="active" sticky="1" header="0" collapsible="0">auto_body_list</block>
 		<block position="recent" status="active" sticky="0" pages="index" title="Recently added cars for sale" header="0" collapsible="0">auto_recent</block>
 		<block position="sponsored" status="active" pages="index" header="0" classname="hidden-sm hidden-xs">auto_sponsored</block>
+		<block position="verybottom" status="active" pages="index" header="0" classname="hidden-sm hidden-xs">auto_featured</block>
 		<block position="tools" header="0" status="active" sticky="1" order="1">autos_tools</block>
 		<block position="verybottom" header="0" status="active" sticky="0" pages="autos_index,autos_index_latest,autos_index_featured,autos_index_popular,autos_index_random,search_autos,autos_models,autos_services,autos_service_view" order="99">auto_random</block>
 		<block position="calc" status="active">autos_calculator</block>
@@ -344,4 +325,4 @@ if (iaView::REQUEST_HTML == $iaView->getRequestType())
 }
 		]]>
 	</hook>
-</template>
+</module>
