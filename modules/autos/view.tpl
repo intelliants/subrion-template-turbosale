@@ -12,7 +12,7 @@
                     <div class="fotorama"
                          data-nav="thumbs"
                          data-width="100%"
-                         data-ratio="1600/900"
+                         data-ratio="16/9"
                          data-allowfullscreen="true"
                          data-fit="{$core.config.template_fotorama_car}">
                         {foreach $item.pictures as $entry}

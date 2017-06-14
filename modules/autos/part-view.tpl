@@ -8,7 +8,7 @@
                     <div class="fotorama"
                          data-nav="thumbs"
                          data-width="100%"
-                         data-ratio="800/600"
+                         data-ratio="16/9"
                          data-allowfullscreen="true"
                          data-fit="{$core.config.template_fotorama_part}">
                         {foreach $item.pictures as $entry}

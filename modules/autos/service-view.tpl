@@ -8,7 +8,7 @@
                     <div class="fotorama"
                          data-nav="thumbs"
                          data-width="100%"
-                         data-ratio="800/600"
+                         data-ratio="16/9"
                          data-allowfullscreen="true"
                          data-fit="{$core.config.template_fotorama_service}">
                         {foreach $item.pictures as $entry}
@@ -90,7 +90,7 @@
 {if !empty($item.company_lat)}
     <div id="dg-map" class="m-t" style="height: 240px;width: 100%;"></div>
 
-    <script src="http://maps.api.2gis.ru/2.0/loader.js?pkg=full"></script>
+    <script src="//maps.api.2gis.ru/2.0/loader.js?pkg=full"></script>
 
     {ia_add_js}
 $(function() {
