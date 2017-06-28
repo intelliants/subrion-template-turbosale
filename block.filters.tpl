@@ -59,8 +59,8 @@
                         <div class="range-slider">
                             <input class="hidden no-js js-range-slider" id="range_{$field.name}" type="text" name="">
 
-                            <input id="range_{$field.name}_from" type="hidden" name="{$field.name}[f]" maxlength="{$field.length}" {if $selected} value="{$selected.f|escape}"{/if}>
-                            <input id="range_{$field.name}_to" type="hidden" name="{$field.name}[t]" maxlength="{$field.length}" {if $selected} value="{$selected.t|escape}"{/if}>
+                            <input id="range_{$field.name}_from" type="hidden" name="{$field.name}[f]" maxlength="{$field.length}"  value="{if $selected} {$selected.f|escape}{else}{$field.range[0]|escape}{/if}">
+                            <input id="range_{$field.name}_to" type="hidden" name="{$field.name}[t]" maxlength="{$field.length}"  value="{if $selected}{$selected.t|escape}{else}{$field.range[1]|escape}{/if}">
 
                             {ia_add_js}
 $(function()
