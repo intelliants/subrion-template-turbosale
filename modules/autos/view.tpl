@@ -249,6 +249,10 @@
     </div>
 </div>
 
-{ia_add_media files='select2, js:intelli/intelli.search, js:frontend/search'}
+{ia_hooker name='smartyItemViewBeforeTabs'}
+
+{include 'item-view-tabs.tpl' isView=true exceptions=['video2', 'model', 'price', 'release_year', 'condition', 'mileage', 'engine', 'engine_type', 'engine_size', 'horse_power', 'transmission', 'pictures', 'fuel_type', 'body_type', 'exterior_color', 'door_count', 'metallic', 'interior_color', 'interior_leather', 'drive_type', 'vin_code', 'additional_info', 'options_features'] class='ia-item-view-tabs'}
 
 {ia_hooker name='smartyViewListingBeforeFooter'}
+
+{ia_add_media files='select2, js:intelli/intelli.search, js:frontend/search'}
